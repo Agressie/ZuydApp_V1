@@ -12,6 +12,6 @@ namespace ZuydApp_V1.Data
         T? GetSpecificEntity(int id);
         List<T>? GetEntities();
         void DeleteEntity(T entity);
-        bool Checkifempty();
+        bool Checkifempty(); 
     }
 }
