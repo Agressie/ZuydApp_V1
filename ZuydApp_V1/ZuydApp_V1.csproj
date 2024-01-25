@@ -21,10 +21,10 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>ZuydApp_V1</ApplicationTitle>
+		<ApplicationTitle>ZuydWayFinder</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.zuydapp_v1</ApplicationId>
+		<ApplicationId>com.companyname.ZuydWayFinder</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
