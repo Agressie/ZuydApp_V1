@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ZuydApp_V1.MVVM.Models
 {
-    internal class Activiteit
+    public class Activiteit
     {
         [Column("lokaal")]
         public Lokaal lokaal {  get; set; }
