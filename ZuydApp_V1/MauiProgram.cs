@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using ZuydApp_V1.Data;
+using ZuydApp_V1.MVVM.Models;
 
 namespace ZuydApp_V1
 {
@@ -14,9 +16,11 @@ namespace ZuydApp_V1
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            builder.Services.AddSingleton<BaseRepo<User>>();
+            builder.Services.AddSingleton<BaseRepo<Activiteit>>();
+            builder.Services.AddSingleton<BaseRepo<Evenement>>();
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
