@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZuydApp_V1.MVVM.Models
 {
-    internal class Lokaal
+    internal class Lokaal : Tabledata
     {
     }
 }

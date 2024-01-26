@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ZuydApp_V1.MVVM.Models
 {
-    public class Evenement
+    public class Evenement : Tabledata
     {
         [Column("activities")]
         public List<Activiteit> activities { get; set; }
