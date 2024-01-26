@@ -11,8 +11,8 @@ namespace ZuydApp_V1.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class VM_User
     {
-        public User? Currentuser { get; set; }
-        public List<User>? Users = new List<User>();
+        public static User? Currentuser { get; set; }
+        public static List<User>? Users = new List<User>();
     }
     public static void CreateNewUser(string username, string password)
     {
