@@ -21,10 +21,10 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>ZuydApp_V1</ApplicationTitle>
+		<ApplicationTitle>ZuydWayFinder</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.zuydapp_v1</ApplicationId>
+		<ApplicationId>com.companyname.ZuydWayFinder</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -57,10 +57,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.6" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.6" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Plugin.LocalNotification" Version="10.1.8" />
+		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.7" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.7" />
 	</ItemGroup>
 
 	<ItemGroup>
