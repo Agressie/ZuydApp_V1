@@ -8,7 +8,7 @@ using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
 {
-    internal class User : Tabledata
+    public class User : Tabledata
     {
         [Column("password")]
         public string Password { get; set; }

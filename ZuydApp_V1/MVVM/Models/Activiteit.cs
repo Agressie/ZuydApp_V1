@@ -11,6 +11,6 @@ namespace ZuydApp_V1.MVVM.Models
     public class Activiteit : Tabledata
     {
         [Column("lokaal")]
-        public Lokaal lokaal {  get; set; }
+        public Lokaal lokaal { get; set; }
     }
 }

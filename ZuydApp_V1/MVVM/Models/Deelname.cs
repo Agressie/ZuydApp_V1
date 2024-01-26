@@ -7,7 +7,7 @@ using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
 {
-    internal class Deelname : Tabledata
+    public class Deelname : Tabledata
     {
     }
 }
