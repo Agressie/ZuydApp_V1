@@ -1,4 +1,6 @@
-using HomeKit;
+using NotificationCenter;
+using Plugin.LocalNotification;
+using UserNotifications;
 
 namespace ZuydApp_V1.MVVM.Views;
 
@@ -41,5 +43,23 @@ public partial class CreateAccountPage : ContentPage
             //else
             //    Invalid.Text = "Username already exists";
         }
+    }
+
+    public void Accountnotification(string username)
+    {
+        var rq = new NotificationRequest
+        {
+            NotificationId = 1000,
+            Title = "Welcome to Zuyd Wayfinder",
+            Subtitle = "Account created with Zuyd Wayfinder",
+            Description = $"Thank you {username} for creating an account with us.",
+            BadgeNumber = 42,
+            Schedule = new NotificationRequestSchedule
+            {
+                NotifyTime = DateTime.Now.AddSeconds(30),
+                NotifyRepeatInterval = TimeSpan.FromSeconds(30),
+            }
+        };
+        LocalNotificationCenter.Current.Show(rq);
     }
 }
