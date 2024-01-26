@@ -67,4 +67,13 @@
 		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.7" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="MVVM\Views\CreateAccountPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
