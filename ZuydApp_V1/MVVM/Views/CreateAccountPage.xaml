@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZuydApp_V1.MVVM.Views.CreateAccountPage"
+             Title=" ">
+    <VerticalStackLayout>
+        <Label 
+            Text="AccounCreate Page"
+            HorizontalOptions="Center"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1"/>
+
+        <Label 
+            Text=""
+            x:Name="Invalid"
+            TextColor="Red"
+            HorizontalTextAlignment="Center"/>
+        <Label 
+            Text="Username"
+            HorizontalTextAlignment="Center"/>
+
+        <Entry 
+            x:Name="EntryUsername"
+            Placeholder="Enter Username"
+            WidthRequest="180"
+            HorizontalTextAlignment="Center"/>
+
+        <Label 
+            Text="Password"
+            HorizontalTextAlignment="Center"/>
+
+        <Entry 
+            x:Name="EntryPassword"
+            Placeholder="Enter Password"
+            WidthRequest="180"
+            HorizontalTextAlignment="Center"/>
+
+        <Label 
+            Text="Confirm Password"
+            HorizontalTextAlignment="Center"/>
+
+        <Entry 
+            x:Name="EntryConfirmPassword"
+            Placeholder="Enter Password"
+            WidthRequest="180"
+            HorizontalTextAlignment="Center"/>
+        <Label 
+            Text=" "
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1"/>
+        <Button 
+            x:Name="btncreateaccount"
+            Text="Create Account"
+            WidthRequest="150"
+            BackgroundColor="Black"
+            Clicked="Onaccountcreateclicked"/>
+    </VerticalStackLayout>
+</ContentPage>
