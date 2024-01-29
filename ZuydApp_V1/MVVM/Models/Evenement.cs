@@ -18,7 +18,7 @@ namespace ZuydApp_V1.MVVM.Models
 
         public DateTime dateTime { get; set; }
 
-        public Dictionary<string,> Weather { get; set; }
+        public List<string>? weather {  get; set; } // When API is added edit comment to show wich index is wich value.
 
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
