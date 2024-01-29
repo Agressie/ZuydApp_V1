@@ -41,7 +41,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
             Currentevenement.eventpublic = !Currentevenement.eventpublic;
             Savechanges();
         }
-        
+
         public void EditEvenement(string name = null, string description = null, DateTime? dateTime = null, string locatie = null)
         {
             if (name != null)
@@ -78,6 +78,22 @@ namespace ZuydApp_V1.MVVM.ViewModels
         {
             App.EvenementRepo.SaveEntity(Currentevenement);
             Console.WriteLine(App.EvenementRepo.statusMessage);
+        }
+
+        public List<Evenement> GetEvenementen()
+        {
+            Refresh();
+            return Evenementen;
+        }
+
+        public Evenement GetSpecificEvenement(int id)
+        {
+            return App.EvenementRepo.GetSpecificEntity(id);
+        }
+
+        public static void SetCurrentEvenement(Evenement evenement)
+        {
+            Currentevenement = evenement;
         }
     }
 }
