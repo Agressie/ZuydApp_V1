@@ -21,6 +21,13 @@ namespace ZuydApp_V1.MVVM.ViewModels
             Console.WriteLine(App.ActiviteitRepo.statusMessage);
         }
 
+        public void DeleteCurrentActiviteit()
+        {
+            App.ActiviteitRepo.DeleteEntity(Currentactiviteit);
+            Console.WriteLine(App.ActiviteitRepo.statusMessage);
+            Refresh();
+        }
+
         private static void Refresh()
         {
             Activiteiten = App.ActiviteitRepo.GetEntities();

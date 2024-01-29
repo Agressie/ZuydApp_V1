@@ -59,6 +59,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         //When you want to Add an Activity call this evefunctionnt.
         public void AddActivity(Activiteit activiteit)
         {
+            activiteit.EvenementId = Currentevenement.Id;
             Currentevenement.activities.Add(activiteit);
             Savechanges();
         }
