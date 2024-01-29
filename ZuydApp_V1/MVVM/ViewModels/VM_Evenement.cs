@@ -25,5 +25,17 @@ namespace ZuydApp_V1.MVVM.ViewModels
         {
             Evenementen = App.EvenementRepo.GetEntities();
         }
+
+        public void ToggleEvenpublicity()
+        {
+            Currentevenement.eventpublic = !Currentevenement.eventpublic;
+            Savechanges();
+        }
+
+        public void Savechanges()
+        {
+            App.EvenementRepo.SaveEntity(Currentevenement);
+            Console.WriteLine(App.EvenementRepo.statusMessage);
+        }
     }
 }

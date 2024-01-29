@@ -12,5 +12,6 @@ namespace ZuydApp_V1.MVVM.Models
     {
         [Column("activities")]
         public List<Activiteit> activities { get; set; }
+        public bool eventpublic { get; set; } = false;
     }
 }
