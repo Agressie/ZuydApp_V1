@@ -12,6 +12,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         public static Activiteit? Currentactiviteit { get; set; }
         public static List<Activiteit>? Activiteiten = new List<Activiteit>();
 
+        // Function to add a new Activiteit. Make sure to check in Page logic all paremeters are filled and are not NULL!!
         public static void CreateNewActiviteit(string name, string description, DateTime datetime, int lokaalid)
         {
             Refresh();
@@ -25,6 +26,8 @@ namespace ZuydApp_V1.MVVM.ViewModels
             Console.WriteLine(App.ActiviteitRepo.statusMessage);
         }
 
+        // Make sure the Activiteit is set before its deleted
+        // Deletes the selected Activiteit. (Before you delete an activiteit set it first with the set current activiteit function!!)
         public void DeleteCurrentActiviteit()
         {
             App.ActiviteitRepo.DeleteEntity(Currentactiviteit);
@@ -32,6 +35,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
             Refresh();
         }
 
+        // When you want to make an edit to the activiteit that is not an User call this function. When calling make sure you give 4 parameters.
         public void EditActiviteit(string name = null, string description = null, DateTime? dateTime = null, int? lokaalid = null)
         {
             if (name != null)
@@ -44,6 +48,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 Currentactiviteit.LokaalId = (int)lokaalid;
             Savechanges();
         }
+        // When you want to add an activiteit to an event call this function.
         public void AddUser(User user)
         {
             Currentactiviteit.users.Add(user);
@@ -68,6 +73,13 @@ namespace ZuydApp_V1.MVVM.ViewModels
             return App.ActiviteitRepo.GetSpecificEntity(id);
         }
 
+        // Very important function!! When you want to set the current actvitieit you call this event.
+        public static void SetCurrentActiviteit(Activiteit activiteit)
+        {
+            Currentactiviteit = activiteit;
+        }
+
+        // These functions are for the functions above to save and get events.
         private static void Refresh()
         {
             Activiteiten = App.ActiviteitRepo.GetEntities();
