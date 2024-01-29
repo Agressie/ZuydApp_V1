@@ -20,6 +20,8 @@ namespace ZuydApp_V1.MVVM.Models
 
         public List<string>? weather {  get; set; } // When API is added edit comment to show wich index is wich value.
 
+        public string location { get; set; }
+
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Activiteit> activities { get; set; }

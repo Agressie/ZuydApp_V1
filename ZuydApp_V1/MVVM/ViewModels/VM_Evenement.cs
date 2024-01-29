@@ -20,6 +20,15 @@ namespace ZuydApp_V1.MVVM.ViewModels
             evenement.description = description;
             App.EvenementRepo.SaveEntity(evenement);
             Console.WriteLine(App.EvenementRepo.statusMessage);
+            Refresh();
+        }
+
+        // Make sure the Event is set before its deleted
+        public void DeleteCurrentEventement()
+        {
+            App.EvenementRepo.DeleteEntity(Currentevenement);
+            Console.WriteLine(App.EvenementRepo.statusMessage);
+            Refresh();
         }
 
         private static void Refresh()
@@ -33,14 +42,16 @@ namespace ZuydApp_V1.MVVM.ViewModels
             Savechanges();
         }
         
-        public void EditEvenement(string name = null, string description = null, DateTime? dateTime = null)
+        public void EditEvenement(string name = null, string description = null, DateTime? dateTime = null, string locatie = null)
         {
             if (name != null)
-                Currentevenement.Name = name;
+                Currentevenement.Name = (string)name;
             if (description != null)
-                Currentevenement.description = description;
+                Currentevenement.description = (string)description;
             if (dateTime != null)
                 Currentevenement.dateTime = (DateTime)dateTime;
+            if (locatie != null)
+                Currentevenement.location = (string)locatie;
             Savechanges();
         }
         public void AddActivity(Activiteit activiteit)
