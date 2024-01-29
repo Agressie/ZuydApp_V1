@@ -9,5 +9,6 @@ namespace ZuydApp_V1.MVVM.Models
 {
     public class Lokaal : Tabledata
     {
+        public string lokaal {  get; set; }
     }
 }

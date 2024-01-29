@@ -12,7 +12,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         public static Activiteit? Currentactiviteit { get; set; }
         public static List<Activiteit>? Activiteiten = new List<Activiteit>();
 
-        public static void CreateNewEvenement(string name)
+        public static void CreateNewActiviteit(string name)
         {
             Refresh();
             Activiteit activiteit = new Activiteit();

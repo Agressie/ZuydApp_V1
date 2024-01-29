@@ -19,6 +19,7 @@ namespace ZuydApp_V1
             builder.Services.AddSingleton<BaseRepo<User>>();
             builder.Services.AddSingleton<BaseRepo<Activiteit>>();
             builder.Services.AddSingleton<BaseRepo<Evenement>>();
+            builder.Services.AddSingleton<BaseRepo<Lokaal>>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
