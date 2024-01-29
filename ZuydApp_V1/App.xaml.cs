@@ -9,7 +9,7 @@ namespace ZuydApp_V1
         public static BaseRepo<Evenement>? EvenementRepo { get; private set; }
         public static BaseRepo<User>? UserRepo { get; private set; }
         public static BaseRepo<Lokaal>? LokaalRepo {  get; private set; } 
-        public App(BaseRepo<Activiteit>? activiteitRepo, BaseRepo<Evenement>? evenementRepo, BaseRepo<User>? userRepo, LokaalRepo<Lokaal> lokaalRepo)
+        public App(BaseRepo<Activiteit>? activiteitRepo, BaseRepo<Evenement>? evenementRepo, BaseRepo<User>? userRepo, BaseRepo<Lokaal> lokaalRepo)
         {
             InitializeComponent();
 
