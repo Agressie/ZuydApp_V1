@@ -12,11 +12,15 @@ namespace ZuydApp_V1.MVVM.ViewModels
         public static Activiteit? Currentactiviteit { get; set; }
         public static List<Activiteit>? Activiteiten = new List<Activiteit>();
 
-        public static void CreateNewActiviteit(string name)
+        public static void CreateNewActiviteit(string name, string description, DateTime datetime, int lokaalid)
         {
             Refresh();
             Activiteit activiteit = new Activiteit();
             activiteit.Name = name;
+            activiteit.description = description;
+            activiteit.dateTime = datetime;
+            activiteit.LokaalId = lokaalid;
+            activiteit.users = new List<User>();
             App.ActiviteitRepo.SaveEntity(activiteit);
             Console.WriteLine(App.ActiviteitRepo.statusMessage);
         }
