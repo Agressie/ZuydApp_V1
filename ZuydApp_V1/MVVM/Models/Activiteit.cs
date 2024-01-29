@@ -8,9 +8,9 @@ using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
 {
+    [Table("Activiteit")]
     public class Activiteit : Tabledata
     {
-        [Column("lokaal")]
         public Lokaal lokaal { get; set; }
     }
 }

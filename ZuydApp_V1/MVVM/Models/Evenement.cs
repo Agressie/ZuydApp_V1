@@ -8,9 +8,9 @@ using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
 {
+    [Table("Evenement")]
     public class Evenement : Tabledata
     {
-        [Column("activities")]
         public List<Activiteit> activities { get; set; }
         public bool eventpublic { get; set; } = false;
     }
