@@ -21,6 +21,8 @@ namespace ZuydApp_V1.MVVM.ViewModels
             evenement.description = description;
             evenement.dateTime = dateTime;
             evenement.location = location;
+            evenement.users = new List<User>();
+            evenement.activities = new List<Activiteit>();
             App.EvenementRepo.SaveEntity(evenement);
             Console.WriteLine(App.EvenementRepo.statusMessage);
             Refresh();
@@ -59,6 +61,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         //When you want to Add an Activity call this evefunctionnt.
         public void AddActivity(Activiteit activiteit)
         {
+            activiteit.EvenementId = Currentevenement.Id;
             Currentevenement.activities.Add(activiteit);
             Savechanges();
         }
