@@ -1,4 +1,4 @@
-
+using ZuydApp_V1.MVVM.ViewModels;
 namespace ZuydApp_V1.MVVM.Views;
 
 public partial class LoginPage : ContentPage
@@ -18,13 +18,11 @@ public partial class LoginPage : ContentPage
             EntryPassword.Placeholder = "Vul iets in!";
         else
         {
-            // This code will work when the VM_User is created and this data can be gotten.
-            //if (VM_User.LoginCheck(EntryUsername.Text, EntryPassword.Text) == true)
-            //    // This Page still has to be made
-            //    Navigation.PushAsync(new HomePage());
-            //else
-            //    Invalid.IsVisible = true;
-            //
+            if (VM_User.LoginCheck(EntryUsername.Text, EntryPassword.Text) == true)
+                Navigation.PushAsync(new HomePage());
+            else
+                Invalid.IsVisible = true;
+            
         }
     }
     private void OnCreateaccountClicked(object sender, EventArgs e)
