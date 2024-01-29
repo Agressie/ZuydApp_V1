@@ -17,7 +17,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
             Refresh();
             Lokaal newlokaal = new Lokaal();
             newlokaal.Name = name;
-            newlokaal.lokaal = lokaal;
+            newlokaal.Name = lokaal;
             App.LokaalRepo.SaveEntity(newlokaal);
             Console.WriteLine(App.LokaalRepo.statusMessage);
         }

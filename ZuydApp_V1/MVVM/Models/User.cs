@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,8 @@ namespace ZuydApp_V1.MVVM.Models
     public class User : Tabledata
     {
         public string Password { get; set; }
+
+        [ManyToMany((typeof(UserEvent)), CascadeOperations = CascadeOperation.All)]
+        public List<Evenement> Evenements {  get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace ZuydApp_V1
         public static BaseRepo<Activiteit>? ActiviteitRepo { get; private set; }
         public static BaseRepo<Evenement>? EvenementRepo { get; private set; }
         public static BaseRepo<User>? UserRepo { get; private set; }
-        public static BaseRepo<Lokaal>? LokaalRepo {  get; private set; } 
-        public App(BaseRepo<Activiteit>? activiteitRepo, BaseRepo<Evenement>? evenementRepo, BaseRepo<User>? userRepo, BaseRepo<Lokaal> lokaalRepo)
+        public static BaseRepo<Lokaal>? LokaalRepo {  get; private set; }
+        public App(BaseRepo<Activiteit> activiteitRepo, BaseRepo<Evenement> evenementRepo, BaseRepo<User> userRepo, BaseRepo<Lokaal> lokaalRepo)
         {
             InitializeComponent();
 
@@ -17,8 +17,7 @@ namespace ZuydApp_V1
             EvenementRepo = evenementRepo;
             UserRepo = userRepo;
             LokaalRepo = lokaalRepo;
-            MainPage = new AppShell();
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new MainPage());
         }
     }
 }

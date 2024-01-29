@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,10 @@ using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
 {
-    [Table("Lokaal")]
+    [Table("Lokalen")]
     public class Lokaal : Tabledata
     {
-        public string lokaal {  get; set; }
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<Activiteit> activiteiten { get; set; }
     }
 }
