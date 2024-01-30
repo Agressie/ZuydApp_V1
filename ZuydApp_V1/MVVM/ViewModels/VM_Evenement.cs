@@ -74,12 +74,14 @@ namespace ZuydApp_V1.MVVM.ViewModels
         public void AddUser(User user)
         {
             Currentevenement.users.Add(user);
+            user.Evenements.Add(Currentevenement);
             Savechanges();
         }
         // When you want to remove an user to an event call this function.
         public void RemoveUser(User user)
         {
             Currentevenement.users.Remove(user);
+            user.Evenements.Remove(Currentevenement);
             Savechanges();
         }
 

@@ -14,21 +14,28 @@ namespace ZuydApp_V1.MVVM.ViewModels
         public static User? Currentuser { get; set; }
         public static List<User>? Users = new List<User>();
 
+        // Function to add a new user. Make sure to check in Page logic all paremeters are filled and are not NULL!!
         public static void CreateNewUser(string username, string password)
         {
             Refresh();
             User user = new User();
             user.Name = username;
             user.Password = password;
+            user.Evenements = new List<Evenement>();
             App.UserRepo.SaveEntity(user);
             Console.WriteLine(App.UserRepo.statusMessage);
         }
 
-        private static void Refresh()
+        // Make sure the user is set before its deleted
+        // Deletes the selected user. (Before you delete an user set it first with the set current user function!!)
+        public void DeleteCurrentUser()
         {
-            Users = App.UserRepo.GetEntities();
+            App.UserRepo.DeleteEntity(Currentuser);
+            Console.WriteLine(App.UserRepo.statusMessage);
+            Refresh();
         }
 
+        // Function for the login page, this checks the username and password from the user.
         public static bool LoginCheck(string username, string password)
         {
             Refresh();
@@ -44,7 +51,19 @@ namespace ZuydApp_V1.MVVM.ViewModels
             }
             return result;
         }
+        // When you want to get a list with all users call this function.
+        public List<User> GetUsers()
+        {
+            Refresh();
+            return Users;
+        }
+        // When you want one specific user call this function and make sure you give the right user ID.
+        public User GetSpecificUser(int id)
+        {
+            return App.UserRepo.GetSpecificEntity(id);
+        }
 
+        // Function to check if a username already exits or not.
         public static bool Checkusername(string Username)
         {
             Refresh();
@@ -57,6 +76,23 @@ namespace ZuydApp_V1.MVVM.ViewModels
                     result = false;
             }
             return result;
+        }
+
+        // Very important function!! When you want to set the current user you call this event.
+        public static void SetCurrentUser(User user)
+        {
+            Currentuser = user;
+        }
+
+        // These functions are for the functions above to save and get events.
+        private static void Refresh()
+        {
+            Users = App.UserRepo.GetEntities();
+        }
+        private static void Savechanges()
+        {
+            App.UserRepo.SaveEntity(Currentuser);
+            Console.WriteLine(App.UserRepo.statusMessage);
         }
     }
 }
