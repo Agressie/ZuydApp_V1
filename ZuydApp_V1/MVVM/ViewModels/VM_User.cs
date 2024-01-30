@@ -11,7 +11,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class VM_User
     {
-        public static User? Currentuser { get; set; }
+        public static User? CurrentUser { get; set; }
         public static List<User>? Users = new List<User>();
 
         // Function to add a new user. Make sure to check in Page logic all paremeters are filled and are not NULL!!
@@ -21,7 +21,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
             User user = new User();
             user.Name = username;
             user.Password = password;
-            user.Evenements = new List<Evenement>();
+            user.Events = new List<Event>();
             App.UserRepo.SaveEntity(user);
             Console.WriteLine(App.UserRepo.statusMessage);
         }
@@ -30,7 +30,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         // Deletes the selected user. (Before you delete an user set it first with the set current user function!!)
         public void DeleteCurrentUser()
         {
-            App.UserRepo.DeleteEntity(Currentuser);
+            App.UserRepo.DeleteEntity(CurrentUser);
             Console.WriteLine(App.UserRepo.statusMessage);
             Refresh();
         }
@@ -71,7 +71,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         // Very important function!! When you want to set the current user you call this event.
         public static void SetCurrentUser(User user)
         {
-            Currentuser = user;
+            CurrentUser = user;
         }
 
         // These functions are for the functions above to save and get events.
@@ -81,50 +81,50 @@ namespace ZuydApp_V1.MVVM.ViewModels
         }
         private static void Savechanges()
         {
-            App.UserRepo.SaveEntity(Currentuser);
+            App.UserRepo.SaveEntity(CurrentUser);
             Console.WriteLine(App.UserRepo.statusMessage);
         }
 
 
-        public static void AddActiviteit(Activiteit activiteit, bool loop = false)
+        public static void AddUndertaking(Undertaking undertaking, bool loop = false)
         {
             if (loop == false)
             {
-                VM_Activities.SetCurrentActiviteit(activiteit);
-                VM_Activities.AddUser(Currentuser, true);
+                VM_Undertaking.SetCurrentUndertaking(undertaking);
+                VM_Undertaking.AddUser(CurrentUser, true);
             }
-            Currentuser.Activiteiten.Add(activiteit);
+            CurrentUser.Undertakings.Add(undertaking);
             Savechanges();
         }
-        public static void RemoveActiviteit(Activiteit activiteit, bool loop = false)
+        public static void RemoveActiviteit(Undertaking undertaking, bool loop = false)
         {
             if (loop == false)
             {
-                VM_Activities.SetCurrentActiviteit(activiteit);
-                VM_Activities.RemoveUser(Currentuser, true);
+                VM_Undertaking.SetCurrentUndertaking(undertaking);
+                VM_Undertaking.RemoveUser(CurrentUser, true);
             }
-            Currentuser.Activiteiten.Remove(activiteit);
+            CurrentUser.Undertakings.Remove(undertaking);
             Savechanges();
         }
 
-        public static void AddEvent(Evenement evenement, bool loop = false)
+        public static void AddEvent(Event @event, bool loop = false)
         {
             if (loop == false)
             {
-                VM_Evenement.SetCurrentEvenement(evenement);
-                VM_Evenement.AddUser(Currentuser, true);
+                VM_Event.SetCurrentEvent(@event);
+                VM_Event.AddUser(CurrentUser, true);
             }
-            Currentuser.Evenements.Add(evenement);
+            CurrentUser.Events.Add(@event);
             Savechanges();
         }
-        public static void RemoveEvent(Evenement evenement, bool loop = false)
+        public static void RemoveEvent(Event @event, bool loop = false)
         {
             if (loop == false)
             {
-                VM_Evenement.SetCurrentEvenement(evenement);
-                VM_Evenement.RemoveUser(Currentuser, true);
+                VM_Event.SetCurrentEvent(@event);
+                VM_Event.RemoveUser(CurrentUser, true);
             }
-            Currentuser.Evenements.Remove(evenement);
+            CurrentUser.Events.Remove(@event);
             Savechanges();
         }
     }
