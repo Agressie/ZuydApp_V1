@@ -35,22 +35,27 @@ namespace ZuydApp_V1.MVVM.ViewModels
             Refresh();
         }
 
-        // Function for the login page, this checks the username and password from the user.
-        public static bool LoginCheck(string username, string password)
+        // Function to check username and or password.
+        // True == Username check, False == Login check
+        public static bool LoginCheckandUsernameCheck(bool type, string username, string password = null)
         {
             Refresh();
             bool result = false;
             foreach (var user in Users)
             {
                 if (user.Name == username)
-                    if (user.Password == password)
-                    {
+                    if (type == true)
                         result = true;
-                        Currentuser = user;
-                    }
+                    else if (type == false)
+                        if (user.Password == password)
+                        {
+                            result = true;
+                            SetCurrentUser(user);
+                        }
             }
             return result;
         }
+
         // When you want to get a list with all users call this function.
         public List<User> GetUsers()
         {
@@ -61,21 +66,6 @@ namespace ZuydApp_V1.MVVM.ViewModels
         public User GetSpecificUser(int id)
         {
             return App.UserRepo.GetSpecificEntity(id);
-        }
-
-        // Function to check if a username already exits or not.
-        public static bool Checkusername(string Username)
-        {
-            Refresh();
-            bool result = true;
-            foreach (var user in Users)
-            {
-                if (user.Name == Username)
-                    result = true;
-                else
-                    result = false;
-            }
-            return result;
         }
 
         // Very important function!! When you want to set the current user you call this event.

@@ -18,7 +18,7 @@ public partial class LoginPage : ContentPage
             EntryPassword.Placeholder = "Vul iets in!";
         else
         {
-            if (VM_User.LoginCheck(EntryUsername.Text, EntryPassword.Text) == true)
+            if (VM_User.LoginCheckandUsernameCheck(false, EntryUsername.Text, EntryPassword.Text) == true)
                 Navigation.PushAsync(new HomePage());
             else
                 Invalid.IsVisible = true;
