@@ -69,6 +69,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         public void RemoveActivity(Activiteit activiteit)
         {
             Currentevenement.activities.Remove(activiteit);
+            Savechanges();
         }
         // When you want to add an user to an event call this function.
         public void AddUser(User user)

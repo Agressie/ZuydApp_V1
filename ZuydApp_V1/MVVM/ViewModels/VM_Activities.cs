@@ -12,7 +12,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         public static Activiteit? Currentactiviteit { get; set; }
         public static List<Activiteit>? Activiteiten = new List<Activiteit>();
 
-        // Function to add a new Activiteit. Make sure to check in Page logic all paremeters are filled and are not NULL!!
+        // Function to add a new Activiteit. Make sure to check in Page logic all paremeters are filled.
         public static void CreateNewActiviteit(string name, string description, DateTime datetime, int lokaalid)
         {
             Refresh();
