@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZuydApp_V1.MVVM.Models;
 using ZuydApp_V1.Data;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ZuydApp_V1.MVVM.Models
 {

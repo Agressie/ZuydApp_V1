@@ -16,5 +16,8 @@ namespace ZuydApp_V1.MVVM.Models
 
         [ManyToMany((typeof(UserEvent)), CascadeOperations = CascadeOperation.All)]
         public List<Evenement> Evenements {  get; set; }
+
+        [ManyToMany((typeof(UserActviteit)), CascadeOperations = CascadeOperation.All)]
+        public List<Activiteit> Activiteiten { get; set; }
     }
 }

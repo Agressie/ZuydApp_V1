@@ -58,34 +58,6 @@ namespace ZuydApp_V1.MVVM.ViewModels
             Savechanges();
         }
 
-        //When you want to Add an Activity call this evefunctionnt.
-        public void AddActivity(Activiteit activiteit)
-        {
-            activiteit.EvenementId = Currentevenement.Id;
-            Currentevenement.activities.Add(activiteit);
-            Savechanges();
-        }
-        // When you want to remove an Actvity call this function.
-        public void RemoveActivity(Activiteit activiteit)
-        {
-            Currentevenement.activities.Remove(activiteit);
-            Savechanges();
-        }
-        // When you want to add an user to an event call this function.
-        public void AddUser(User user)
-        {
-            Currentevenement.users.Add(user);
-            user.Evenements.Add(Currentevenement);
-            Savechanges();
-        }
-        // When you want to remove an user to an event call this function.
-        public void RemoveUser(User user)
-        {
-            Currentevenement.users.Remove(user);
-            user.Evenements.Remove(Currentevenement);
-            Savechanges();
-        }
-
         // When you want to get a list with all event call this function.
         public List<Evenement> GetEvenementen()
         {
@@ -93,7 +65,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
             return Evenementen;
         }
         // When you want one specific event call this function and make sure you give the right Event ID.
-        public Evenement GetSpecificEvenement(int id)
+        public static Evenement GetSpecificEvenement(int id)
         {
             return App.EvenementRepo.GetSpecificEntity(id);
         }
@@ -113,6 +85,52 @@ namespace ZuydApp_V1.MVVM.ViewModels
         {
             App.EvenementRepo.SaveEntity(Currentevenement);
             Console.WriteLine(App.EvenementRepo.statusMessage);
+        }
+
+
+
+        public static void AddActivity(Activiteit activiteit, bool loop = false)
+        {
+            if (loop = false)
+            {
+                VM_Activities.SetCurrentActiviteit(activiteit);
+                VM_Activities.SetEvent((int)Currentevenement.Id, true);
+            }
+            Currentevenement.activities.Add(activiteit);
+            Savechanges();
+        }
+
+        public static void RemoveActivity(Activiteit activiteit, bool loop = false)
+        {
+            if (loop == false)
+            {
+                VM_Activities.SetCurrentActiviteit(activiteit);
+                VM_Activities.SetEvent(null, true);
+            }
+            Currentevenement.activities.Remove(activiteit);
+            Savechanges();
+        }
+
+        public static void AddUser(User user, bool loop = false)
+        {
+            if (loop == false) 
+            {
+                VM_User.SetCurrentUser(user);
+                VM_User.AddEvent(Currentevenement, true);
+            }
+            Currentevenement.users.Add(user);
+            Savechanges();
+        }
+
+        public static void RemoveUser(User user, bool loop = false)
+        {
+            if (loop == false)
+            {
+                VM_User.SetCurrentUser(user);
+                VM_User.RemoveEvent(Currentevenement, true);
+            }
+            Currentevenement.users.Remove(user);
+            Savechanges();
         }
     }
 }

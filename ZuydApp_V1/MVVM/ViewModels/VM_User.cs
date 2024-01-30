@@ -84,5 +84,48 @@ namespace ZuydApp_V1.MVVM.ViewModels
             App.UserRepo.SaveEntity(Currentuser);
             Console.WriteLine(App.UserRepo.statusMessage);
         }
+
+
+        public static void AddActiviteit(Activiteit activiteit, bool loop = false)
+        {
+            if (loop == false)
+            {
+                VM_Activities.SetCurrentActiviteit(activiteit);
+                VM_Activities.AddUser(Currentuser, true);
+            }
+            Currentuser.Activiteiten.Add(activiteit);
+            Savechanges();
+        }
+        public static void RemoveActiviteit(Activiteit activiteit, bool loop = false)
+        {
+            if (loop == false)
+            {
+                VM_Activities.SetCurrentActiviteit(activiteit);
+                VM_Activities.RemoveUser(Currentuser, true);
+            }
+            Currentuser.Activiteiten.Remove(activiteit);
+            Savechanges();
+        }
+
+        public static void AddEvent(Evenement evenement, bool loop = false)
+        {
+            if (loop == false)
+            {
+                VM_Evenement.SetCurrentEvenement(evenement);
+                VM_Evenement.AddUser(Currentuser, true);
+            }
+            Currentuser.Evenements.Add(evenement);
+            Savechanges();
+        }
+        public static void RemoveEvent(Evenement evenement, bool loop = false)
+        {
+            if (loop == false)
+            {
+                VM_Evenement.SetCurrentEvenement(evenement);
+                VM_Evenement.RemoveUser(Currentuser, true);
+            }
+            Currentuser.Evenements.Remove(evenement);
+            Savechanges();
+        }
     }
 }
