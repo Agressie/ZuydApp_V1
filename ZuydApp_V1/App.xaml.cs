@@ -1,5 +1,6 @@
 ﻿using ZuydApp_V1.Data;
 using ZuydApp_V1.MVVM.Models;
+using ZuydApp_V1.MVVM.Views;
 
 namespace ZuydApp_V1
 {
@@ -17,7 +18,7 @@ namespace ZuydApp_V1
             EventRepo = eventRepo;
             UserRepo = userRepo;
             RoomRepo = roomRepo;
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

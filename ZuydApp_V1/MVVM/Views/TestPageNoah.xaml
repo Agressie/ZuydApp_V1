@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZuydApp_V1.MVVM.Views.TestPageNoah"
+             Title="TestPageNoah">
+    <VerticalStackLayout>
+        <Label 
+            Text="Forecast"
+            Style="{StaticResource Headline}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="Date"
+            Style="{StaticResource SubHeadline}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="lblDate"
+            Text="00/00/00 00:00:00"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="Beschrijving"
+            Style="{StaticResource SubHeadline}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="lbldesc"
+            Text="Lorus Ipsum"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="Maximale Temperatuur"
+            Style="{StaticResource SubHeadline}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="lblmaxtemp"
+            Text="5"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="Minimale Temperatuur"
+            Style="{StaticResource SubHeadline}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="lblmintemp"
+            Text="1"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            x:Name="btnnext"
+            Text="Next Day" 
+            WidthRequest="150"
+            TextColor="White"
+            BackgroundColor="Red"
+            Clicked="OnNextDayClicked"
+            HorizontalOptions="Fill" />
+        <Button
+            x:Name="btnprev"
+            Text="Prev Day" 
+            WidthRequest="150"
+            TextColor="White"
+            BackgroundColor="Red"
+            Clicked="OnPrevDayClicked"
+            HorizontalOptions="Fill" />
+
+    </VerticalStackLayout>
+</ContentPage>
