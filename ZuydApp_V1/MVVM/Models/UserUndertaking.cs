@@ -8,10 +8,10 @@ using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
 {
-    public class UserActviteit : Tabledata
+    public class UserUndertaking : Tabledata
     {
-        [ForeignKey(typeof(Activiteit))]
-        public int ActiviteitId { get; set; }
+        [ForeignKey(typeof(Undertaking))]
+        public int UndertakingId { get; set; }
 
         [ForeignKey(typeof(User))]
         public int UserId { get; set; }

@@ -17,9 +17,9 @@ namespace ZuydApp_V1
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
             builder.Services.AddSingleton<BaseRepo<User>>();
-            builder.Services.AddSingleton<BaseRepo<Activiteit>>();
-            builder.Services.AddSingleton<BaseRepo<Evenement>>();
-            builder.Services.AddSingleton<BaseRepo<Lokaal>>();
+            builder.Services.AddSingleton<BaseRepo<Undertaking>>();
+            builder.Services.AddSingleton<BaseRepo<Event>>();
+            builder.Services.AddSingleton<BaseRepo<Room>>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

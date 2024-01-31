@@ -5,18 +5,18 @@ namespace ZuydApp_V1
 {
     public partial class App : Application
     {
-        public static BaseRepo<Activiteit>? ActiviteitRepo { get; private set; }
-        public static BaseRepo<Evenement>? EvenementRepo { get; private set; }
+        public static BaseRepo<Undertaking>? UndertakingRepo { get; private set; }
+        public static BaseRepo<Event>? EventRepo { get; private set; }
         public static BaseRepo<User>? UserRepo { get; private set; }
-        public static BaseRepo<Lokaal>? LokaalRepo {  get; private set; }
-        public App(BaseRepo<Activiteit> activiteitRepo, BaseRepo<Evenement> evenementRepo, BaseRepo<User> userRepo, BaseRepo<Lokaal> lokaalRepo)
+        public static BaseRepo<Room>? RoomRepo {  get; private set; }
+        public App(BaseRepo<Undertaking> undertakingRepo, BaseRepo<Event> eventRepo, BaseRepo<User> userRepo, BaseRepo<Room> roomRepo)
         {
             InitializeComponent();
 
-            ActiviteitRepo = activiteitRepo;
-            EvenementRepo = evenementRepo;
+            UndertakingRepo = undertakingRepo;
+            EventRepo = eventRepo;
             UserRepo = userRepo;
-            LokaalRepo = lokaalRepo;
+            RoomRepo = roomRepo;
             MainPage = new NavigationPage(new MainPage());
         }
     }
