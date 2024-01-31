@@ -9,10 +9,10 @@ using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
 {
-    [Table("Lokalen")]
-    public class Lokaal : Tabledata
+    [Table("Room")]
+    public class Room : Tabledata
     {
         [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Activiteit> activiteiten { get; set; }
+        public List<Undertaking>? Undertakings { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace ZuydApp_V1.MVVM.Models
 {
     public class UserEvent
     {
-        [ForeignKey(typeof(Evenement))]
+        [ForeignKey(typeof(Event))]
         public int EvenementId { get; set; }
 
         [ForeignKey(typeof(User))]
