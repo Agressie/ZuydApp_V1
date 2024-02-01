@@ -4,9 +4,66 @@
              x:Class="ZuydApp_V1.MVVM.Views.HomePage"
              Title="HomePage">
     <VerticalStackLayout>
+
+        
+        <Image Source="zuyd_logo.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+               WidthRequest="100" HeightRequest="100" Margin="0,0,0,10" />
+
+
+        <VerticalStackLayout Margin="10,0,10,0"/>
+
+
+
+        
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="ZUYD Wayfinder"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            TextColor="#E3001B" 
+            FontAttributes="Bold"
+            FontSize="Large"
+            Margin="0,0,0,20"/>
+
+        
+        <Button
+            x:Name="btnEvenementen"
+            Text="Evenementen"
+            Clicked="btnEvenementen_Clicked"
+            HorizontalOptions="Center"
+            TextColor="White"
+            BackgroundColor="#E3001B"
+            WidthRequest="200"
+            Margin="0,0,0,10"/>
+
+        <Button
+            x:Name="btnActiviteiten"
+            Text="Activiteiten"
+            Clicked="btnActiviteiten_Clicked"
+            HorizontalOptions="Center"
+            TextColor="White"
+            BackgroundColor="#E3001B"
+            Margin="0,0,0,10"
+            WidthRequest="200"/>
+
+        <Button
+            x:Name="btnLokalen"
+            Text="Lokalen"
+            Clicked="btnLokalen_Clicked"
+            HorizontalOptions="Center"
+            TextColor="White"
+            BackgroundColor="#E3001B"
+            Margin="0,0,0,10"
+            WidthRequest="200"/>
+
+        <Button
+            x:Name="btnParkeerterrein"
+            Text="Parkeerterrein"
+            Clicked="btnParkeerterrein_Clicked"
+            HorizontalOptions="Center"
+            TextColor="White"
+            BackgroundColor="#E3001B"
+            Margin="0,0,0,10"
+            WidthRequest="200"/>
+
     </VerticalStackLayout>
 </ContentPage>
