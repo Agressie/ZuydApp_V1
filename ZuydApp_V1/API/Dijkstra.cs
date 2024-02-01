@@ -10,11 +10,15 @@ namespace ZuydApp_V1.API
 {
     public class Dijkstra
     {
-        public void getpy()
-        {
-            dynamic pythonModule = Py.Import("Algorithem"); // Vervang dit door de naam van jouw .py-bestand zonder de extensie
-            pythonModule; // Vervang 'jouw_methode' door de naam van de methode die je wilt aanroepen
+        private static dynamic pythonModule = Py.Import("Algorithem"); 
 
+        public List<String> PyDijkstra(string start, string end, bool nood, bool handicap)
+        {
+            return pythonModule.Dijkstra(start, end);
+        }
+        public List<String> PyGrafenlijst()
+        {
+            return pythonModule.Grafenlijst();
         }
     }
 }
