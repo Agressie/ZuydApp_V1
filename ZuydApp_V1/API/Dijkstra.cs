@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Python.Runtime;
-using (Py.GIL());
 
 namespace ZuydApp_V1.API
 {
