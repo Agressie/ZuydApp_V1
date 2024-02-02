@@ -18,8 +18,6 @@ namespace ZuydApp_V1.MVVM.Models
 
         public DateTime DateTime { get; set; }
 
-        public List<string>? Weather {  get; set; } // When API is added edit comment to show wich index is wich value.
-
         public string? Location { get; set; }
 
 
