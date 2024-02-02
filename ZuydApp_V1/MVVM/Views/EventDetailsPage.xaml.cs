@@ -1,5 +1,6 @@
 using ZuydApp_V1.MVVM.ViewModels;
 using ZuydApp_V1.MVVM.Models;
+using ZuydApp_V1.API;
 
 namespace ZuydApp_V1.MVVM.Views;
 
@@ -10,8 +11,10 @@ public partial class EventDetailsPage : ContentPage
 	{
 		InitializeComponent();
 		Event @event = VM_Event.CurrentEvent;
-        DisplayLayout.BindingContext = @event;
-		checkentered(@event);
+		List<Weather> forecast = Weather.GetForecast();
+        DisplayLayoutEvent.BindingContext = @event;
+        DisplayLayoutWeather.BindingContext = forecast[0];
+        checkentered(@event);
 	}
 
 	private void checkentered(Event @event)

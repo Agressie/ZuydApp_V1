@@ -17,28 +17,60 @@
                 CornerRadius="10"
                 BackgroundColor="#ff9191"
                 BorderColor="Black"
-                Margin="0,5,0,5"
+                Margin="2,5,2,5"
                 Padding="10">
-                <StackLayout
-                    x:Name="DisplayLayout">
-
-                    <Label
+                <StackLayout>
+                    <StackLayout
+                    x:Name="DisplayLayoutEvent">
+                        <Label
                             x:Name="lblEventName"
                             Text="{Binding Name}"
                             HorizontalTextAlignment="Start"
                             FontSize="Medium"/>
-                    <Label
+                        <Label
                             x:Name="lbldesc"
                             HorizontalTextAlignment="Start"
                             Text="{Binding Description}"/>
-                    <Label      
+                        <Label      
                             x:Name="lbldate"
                             HorizontalTextAlignment="Start"
                             Text="{Binding DateTime}"/>
-                    <Label
+                        <Label
                             x:Name="lbllocation"
                             HorizontalTextAlignment="Start"
                             Text="{Binding Location}"/>
+                    </StackLayout>
+                    <StackLayout
+                        x:Name="DisplayLayoutWeather">
+                        <Label
+                            x:Name="lblweatherdesc"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Weatherdesc}"/>
+                        <HorizontalStackLayout>
+                            <Label      
+                                HorizontalTextAlignment="Start"
+                                Text="Max: "/>
+                            <Label      
+                                x:Name="lblweathermax"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding WeatherMaxtemp}"/>
+                            <Label      
+                                HorizontalTextAlignment="Start"
+                                Text=" Graden"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label      
+                                HorizontalTextAlignment="Start"
+                                Text="Min: "/>
+                            <Label
+                                x:Name="lblweathermin"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding WeatherMintemp}"/>
+                            <Label      
+                                HorizontalTextAlignment="Start"
+                                Text=" Graden"/>
+                        </HorizontalStackLayout>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </VerticalStackLayout>
@@ -50,7 +82,7 @@
             BackgroundColor="Red"
             Clicked="OnActiviteitenClicked"
             HorizontalOptions="Fill"
-            Padding="5"/>
+            Margin="5"/>
         <Button
             x:Name="btnInUitschrijven"
             Text="Inschrijven" 
@@ -59,16 +91,16 @@
             BackgroundColor="Red"
             Clicked="OnInUitschrijvenClicked"
             HorizontalOptions="Fill"
-            Padding="5"/>
+            Margin="5"/>
         <Button
             x:Name="btnDeleteEvent"
             Text="Verwijder Evenement" 
-            WidthRequest="150"
+            WidthRequest="180"
             TextColor="White"
             BackgroundColor="Red"
             Clicked="btnDeleteEventClicked"    
             HorizontalOptions="Fill"
-            Padding="5"/>
+            Margin="5"/>
 
 
     <VerticalStackLayout Margin="10,0,10,0"/>

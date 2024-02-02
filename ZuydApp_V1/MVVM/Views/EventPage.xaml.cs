@@ -5,7 +5,7 @@ namespace ZuydApp_V1.MVVM.Views;
 
 public partial class EventPage : ContentPage
 {
-	public List<Event> events = VM_Event.GetEvent();
+	Private List<Event> events = VM_Event.GetEvent();
     public EventPage()
 	{
 		InitializeComponent();
