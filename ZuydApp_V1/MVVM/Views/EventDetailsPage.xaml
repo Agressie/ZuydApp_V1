@@ -4,10 +4,6 @@
              x:Class="ZuydApp_V1.MVVM.Views.EventDetailsPage"
              Title="EventDetailsPage">
     <VerticalStackLayout>
-
-        <Label
-            x:Name="lbltest"
-            Text="User"/>
         <Label 
             Text="ZUYD Wayfinder"
             VerticalOptions="Center" 
@@ -53,7 +49,8 @@
             TextColor="White"
             BackgroundColor="Red"
             Clicked="OnActiviteitenClicked"
-            HorizontalOptions="Fill" />
+            HorizontalOptions="Fill"
+            Padding="5"/>
         <Button
             x:Name="btnInUitschrijven"
             Text="Inschrijven" 
@@ -61,7 +58,17 @@
             TextColor="White"
             BackgroundColor="Red"
             Clicked="OnInUitschrijvenClicked"
-            HorizontalOptions="Fill" />
+            HorizontalOptions="Fill"
+            Padding="5"/>
+        <Button
+            x:Name="btnDeleteEvent"
+            Text="Verwijder Evenement" 
+            WidthRequest="150"
+            TextColor="White"
+            BackgroundColor="Red"
+            Clicked="btnDeleteEventClicked"    
+            HorizontalOptions="Fill"
+            Padding="5"/>
 
 
     <VerticalStackLayout Margin="10,0,10,0"/>

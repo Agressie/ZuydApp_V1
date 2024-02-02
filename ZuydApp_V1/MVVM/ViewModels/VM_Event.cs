@@ -31,7 +31,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
 
         // Make sure the Event is set before its deleted
         // Deletes the selected Event. (Before you delete an event set it first with the set current event function!!)
-        public void DeleteCurrentEvent()
+        public static void DeleteCurrentEvent()
         {
             App.EventRepo.DeleteEntity(CurrentEvent);
             Console.WriteLine(App.EventRepo.statusMessage);
@@ -39,14 +39,14 @@ namespace ZuydApp_V1.MVVM.ViewModels
         }
 
         // To toggle the publicity status of an event just call this function.
-        public void ToggleEventPublicity()
+        public static void ToggleEventPublicity()
         {
             CurrentEvent.EventPublic = !CurrentEvent.EventPublic;
             Savechanges();
         }
 
         // When you want to make an edit to the Event that is not an User or an Activiteit call this function. When calling make sure you give 4 parameters.
-        public void EditEvent(string name = null, string description = null, DateTime? dateTime = null, string location = null)
+        public static void EditEvent(string name = null, string description = null, DateTime? dateTime = null, string location = null)
         {
             if (name != null)
                 CurrentEvent.Name = (string)name;

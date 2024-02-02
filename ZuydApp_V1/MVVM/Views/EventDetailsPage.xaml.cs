@@ -11,7 +11,6 @@ public partial class EventDetailsPage : ContentPage
 		InitializeComponent();
 		Event @event = VM_Event.CurrentEvent;
         DisplayLayout.BindingContext = @event;
-		lbltest.Text = VM_User.CurrentUser.Name;
 		checkentered(@event);
 	}
 
@@ -51,4 +50,10 @@ public partial class EventDetailsPage : ContentPage
 			enteredevent = true;
 		}
 	}
+
+    private void btnDeleteEventClicked(object sender, EventArgs e)
+    {
+		VM_Event.DeleteCurrentEvent();
+		Navigation.PushAsync(new EventPage());
+    }
 }
