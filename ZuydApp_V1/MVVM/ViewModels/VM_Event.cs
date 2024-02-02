@@ -24,6 +24,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
             @event.Users = new List<User>();
             @event.Undertakings = new List<Undertaking>();
             App.EventRepo.SaveEntity(@event);
+            CurrentEvent = @event;
             Console.WriteLine(App.EventRepo.statusMessage);
             Refresh();
         }
@@ -59,7 +60,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         }
 
         // When you want to get a list with all event call this function.
-        public List<Event> GetEvent()
+        public static List<Event> GetEvent()
         {
             Refresh();
             return Events;
@@ -96,6 +97,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.SetEvent((int)CurrentEvent.Id, true);
             }
+
+            if (CurrentEvent.Undertakings == null)
+                CurrentEvent.Undertakings = new List<Undertaking>();
+
             CurrentEvent.Undertakings.Add(undertaking);
             Savechanges();
         }
@@ -107,6 +112,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.SetEvent(null, true);
             }
+
             CurrentEvent.Undertakings.Remove(undertaking);
             Savechanges();
         }
@@ -118,6 +124,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_User.SetCurrentUser(user);
                 VM_User.AddEvent(CurrentEvent, true);
             }
+
+            if (CurrentEvent.Users == null)
+                CurrentEvent.Users = new List<User>();
+
             CurrentEvent.Users.Add(user);
             Savechanges();
         }

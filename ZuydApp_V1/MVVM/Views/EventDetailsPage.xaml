@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZuydApp_V1.MVVM.Views.EventDetailsPage"
+             Title="EventDetailsPage">
+    <VerticalStackLayout>
+
+        <Label
+            x:Name="lbltest"
+            Text="User"/>
+        <Label 
+            Text="ZUYD Wayfinder"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            TextColor="#E3001B" 
+            FontAttributes="Bold"
+            FontSize="Large"
+            Margin="0,0,0,20"/>
+        <VerticalStackLayout Margin="10,0,10,0">
+            <Frame
+                CornerRadius="10"
+                BackgroundColor="#ff9191"
+                BorderColor="Black"
+                Margin="0,5,0,5"
+                Padding="10">
+                <StackLayout
+                    x:Name="DisplayLayout">
+
+                    <Label
+                            x:Name="lblEventName"
+                            Text="{Binding Name}"
+                            HorizontalTextAlignment="Start"
+                            FontSize="Medium"/>
+                    <Label
+                            x:Name="lbldesc"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Description}"/>
+                    <Label      
+                            x:Name="lbldate"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding DateTime}"/>
+                    <Label
+                            x:Name="lbllocation"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Location}"/>
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <Button
+            x:Name="btnActiviteiten"
+            Text="Activiteiten" 
+            WidthRequest="150"
+            TextColor="White"
+            BackgroundColor="Red"
+            Clicked="OnActiviteitenClicked"
+            HorizontalOptions="Fill" />
+        <Button
+            x:Name="btnInUitschrijven"
+            Text="Inschrijven" 
+            WidthRequest="150"
+            TextColor="White"
+            BackgroundColor="Red"
+            Clicked="OnInUitschrijvenClicked"
+            HorizontalOptions="Fill" />
+
+
+    <VerticalStackLayout Margin="10,0,10,0"/>
+    </VerticalStackLayout>
+</ContentPage>

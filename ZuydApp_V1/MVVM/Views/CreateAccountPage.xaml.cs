@@ -44,6 +44,7 @@ public partial class CreateAccountPage : ContentPage
 
     public void Accountnotification(string username)
     {
+        
         var rq = new NotificationRequest
         {
             NotificationId = 1000,

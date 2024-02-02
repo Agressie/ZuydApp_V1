@@ -7,7 +7,6 @@
         <StackLayout
             Padding="30,0"
             Spacing="25">
-
             <Label
                 Text="Zuyd Wayfinder"
                 Style="{StaticResource Headline}"
@@ -52,6 +51,9 @@
                 Clicked="OnCreateaccountClicked"
                 BackgroundColor="White"
                 TextColor="Black"
+                HorizontalOptions="Center"/>
+            <Label
+                Text="Forgot Password"
                 HorizontalOptions="Center"/>
 
         </StackLayout>
