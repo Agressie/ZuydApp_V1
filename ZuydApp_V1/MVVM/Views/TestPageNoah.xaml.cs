@@ -9,10 +9,7 @@ public partial class TestPageNoah : ContentPage
     public TestPageNoah()
 	{
 		InitializeComponent();
-		lblDate.Text = forecast[daycounter].Weatherdatetime.ToString();
-		lbldesc.Text = forecast[daycounter].Weatherdesc.ToString();
-		lblmaxtemp.Text = forecast[daycounter].WeatherMaxtemp.ToString();
-		lblmintemp.Text = forecast[daycounter].WeatherMintemp.ToString();
+        SetParams();
     }
 	private void OnNextDayClicked(object sender, EventArgs e)
 	{
