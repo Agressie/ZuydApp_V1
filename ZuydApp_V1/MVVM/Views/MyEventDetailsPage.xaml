@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZuydApp_V1.MVVM.Views.MyEventDetailsPage"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout>
+        <Label 
+            Text="ZUYD Wayfinder"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            TextColor="#E3001B" 
+            FontAttributes="Bold"
+            FontSize="Large"
+            Margin="0,0,0,20"/>
+        <VerticalStackLayout Margin="10,0,10,0">
+            <Frame
+                CornerRadius="10"
+                BackgroundColor="#ff9191"
+                BorderColor="Black"
+                Margin="2,5,2,5"
+                Padding="10">
+                <StackLayout>
+                    <StackLayout
+                    x:Name="DisplayLayoutEvent">
+                        <Label
+                            x:Name="lblEventName"
+                            Text="{Binding Name}"
+                            HorizontalTextAlignment="Start"
+                            FontSize="Medium"/>
+                        <Label
+                            x:Name="lbldesc"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Description}"/>
+                        <Label      
+                            x:Name="lbldate"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding DateTime}"/>
+                        <Label
+                            x:Name="lbllocation"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Location}"/>
+                    </StackLayout>
+                    <StackLayout
+                        x:Name="DisplayLayoutWeather">
+                        <Label
+                            x:Name="lblweatherdesc"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Weatherdesc}"/>
+                        <HorizontalStackLayout>
+                            <Label      
+                                HorizontalTextAlignment="Start"
+                                Text="Max: "/>
+                            <Label      
+                                x:Name="lblweathermax"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding WeatherMaxtemp}"/>
+                            <Label      
+                                HorizontalTextAlignment="Start"
+                                Text=" Graden"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label      
+                                HorizontalTextAlignment="Start"
+                                Text="Min: "/>
+                            <Label
+                                x:Name="lblweathermin"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding WeatherMintemp}"/>
+                            <Label      
+                                HorizontalTextAlignment="Start"
+                                Text=" Graden"/>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <Button
+            x:Name="btnActiviteiten"
+            Text="Activiteiten" 
+            WidthRequest="150"
+            TextColor="White"
+            BackgroundColor="Red"
+            Clicked="OnActiviteitenClicked"
+            HorizontalOptions="Fill"
+            Margin="5"/>
+        <Button
+            x:Name="btnInUitschrijven"
+            Text="Inschrijven" 
+            WidthRequest="150"
+            TextColor="White"
+            BackgroundColor="Red"
+            Clicked="OnInUitschrijvenClicked"
+            HorizontalOptions="Fill"
+            Margin="5"/>
+
+        <VerticalStackLayout Margin="10,0,10,0"/>
+    </VerticalStackLayout>
+</ContentPage>

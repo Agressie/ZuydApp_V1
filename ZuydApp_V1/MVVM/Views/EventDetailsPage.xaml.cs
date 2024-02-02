@@ -45,6 +45,7 @@ public partial class EventDetailsPage : ContentPage
 			VM_Event.RemoveUser(VM_User.CurrentUser);
 			btnInUitschrijven.Text = "Inschrijven";
 			enteredevent = false;
+			Navigation.PopAsync();
 		}
 		else if (enteredevent == false)
 		{
