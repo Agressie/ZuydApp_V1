@@ -5,7 +5,7 @@ namespace ZuydApp_V1.MVVM.Views;
 
 public partial class EventPage : ContentPage
 {
-	Private List<Event> events = VM_Event.GetEvent();
+	public List<Event> events = VM_Event.GetEvent();
     public EventPage()
 	{
 		InitializeComponent();
@@ -14,9 +14,7 @@ public partial class EventPage : ContentPage
 
     private void btnVoegEvenement_Clicked(object sender, EventArgs e)
     {
-		VM_Event.CreateNewEvent("EventTest2", "Beschrijvingtest", DateTime.Now, "Heerlen");
-        events = VM_Event.GetEvent();
-        lstvwEvents.ItemsSource = events;
+        Navigation.PushAsync(new CreateEventPage());
 
     }
 

@@ -11,7 +11,7 @@
             SemanticProperties.HeadingLevel="Level1"/>
 
         <Label 
-            Text=""
+            Text="Passwords don't match or Username already exists."
             x:Name="Invalid"
             TextColor="Red"
             HorizontalTextAlignment="Center"/>
