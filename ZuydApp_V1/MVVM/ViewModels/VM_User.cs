@@ -41,7 +41,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         {
             Refresh();
             bool result = false;
-            foreach (var user in Users)
+            foreach (User user in Users)
             {
                 if (user.Name == username)
                     if (type == true)
@@ -93,6 +93,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.AddUser(CurrentUser, true);
             }
+
+            if (CurrentUser.Undertakings == null)
+                CurrentUser.Undertakings = new List<Undertaking>();
+
             CurrentUser.Undertakings.Add(undertaking);
             Savechanges();
         }
@@ -114,6 +118,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_Event.SetCurrentEvent(@event);
                 VM_Event.AddUser(CurrentUser, true);
             }
+
+            if (CurrentUser.Events == null)
+                CurrentUser.Events = new List<Event>();
+
             CurrentUser.Events.Add(@event);
             Savechanges();
         }

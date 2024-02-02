@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZuydApp_V1.MVVM.Views.RoomPage"
+             Title="RoomPage">
+    <VerticalStackLayout>
+
+
+        <Image Source="zuyd_logo.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+               WidthRequest="100" HeightRequest="100" Margin="0,0,0,10" />
+
+
+        <VerticalStackLayout Margin="10,0,10,0"/>
+
+
+
+
+        <Label 
+            Text="ZUYD Wayfinder"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            TextColor="#E3001B" 
+            FontAttributes="Bold"
+            FontSize="Large"
+            Margin="0,0,0,20"/>
+
+        <Button
+            x:Name="btnVoegRoom"
+            Text="+ Voeg Lokaal toe" 
+            Clicked="btnVoegRoom_Clicked" 
+            HorizontalOptions="Center"
+            TextColor="White"
+            BackgroundColor="#E3001B"
+            WidthRequest="200"
+            Margin="0,0,0,10"/>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>

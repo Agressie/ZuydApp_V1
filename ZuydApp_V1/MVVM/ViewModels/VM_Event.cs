@@ -24,13 +24,14 @@ namespace ZuydApp_V1.MVVM.ViewModels
             @event.Users = new List<User>();
             @event.Undertakings = new List<Undertaking>();
             App.EventRepo.SaveEntity(@event);
+            CurrentEvent = @event;
             Console.WriteLine(App.EventRepo.statusMessage);
             Refresh();
         }
 
         // Make sure the Event is set before its deleted
         // Deletes the selected Event. (Before you delete an event set it first with the set current event function!!)
-        public void DeleteCurrentEvent()
+        public static void DeleteCurrentEvent()
         {
             App.EventRepo.DeleteEntity(CurrentEvent);
             Console.WriteLine(App.EventRepo.statusMessage);
@@ -38,14 +39,14 @@ namespace ZuydApp_V1.MVVM.ViewModels
         }
 
         // To toggle the publicity status of an event just call this function.
-        public void ToggleEventPublicity()
+        public static void ToggleEventPublicity()
         {
             CurrentEvent.EventPublic = !CurrentEvent.EventPublic;
             Savechanges();
         }
 
         // When you want to make an edit to the Event that is not an User or an Activiteit call this function. When calling make sure you give 4 parameters.
-        public void EditEvent(string name = null, string description = null, DateTime? dateTime = null, string location = null)
+        public static void EditEvent(string name = null, string description = null, DateTime? dateTime = null, string location = null)
         {
             if (name != null)
                 CurrentEvent.Name = (string)name;
@@ -59,7 +60,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         }
 
         // When you want to get a list with all event call this function.
-        public List<Event> GetEvent()
+        public static List<Event> GetEvent()
         {
             Refresh();
             return Events;
@@ -96,6 +97,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.SetEvent((int)CurrentEvent.Id, true);
             }
+
+            if (CurrentEvent.Undertakings == null)
+                CurrentEvent.Undertakings = new List<Undertaking>();
+
             CurrentEvent.Undertakings.Add(undertaking);
             Savechanges();
         }
@@ -107,6 +112,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.SetEvent(null, true);
             }
+
             CurrentEvent.Undertakings.Remove(undertaking);
             Savechanges();
         }
@@ -118,6 +124,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_User.SetCurrentUser(user);
                 VM_User.AddEvent(CurrentEvent, true);
             }
+
+            if (CurrentEvent.Users == null)
+                CurrentEvent.Users = new List<User>();
+
             CurrentEvent.Users.Add(user);
             Savechanges();
         }

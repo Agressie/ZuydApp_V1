@@ -105,6 +105,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_User.SetCurrentUser(user);
                 VM_User.AddUndertaking(CurrentUndertaking, true);
             }
+
+            if (CurrentUndertaking.Users == null)
+                CurrentUndertaking.Users = new List<User>();
+
             CurrentUndertaking.Users.Add(user);
             Savechanges();
         }

@@ -72,6 +72,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.SetLokaal((int)CurrentRoom.Id, true);
             }
+
+            if (CurrentRoom.Undertakings == null)
+                CurrentRoom.Undertakings = new List<Undertaking>();
+
             CurrentRoom.Undertakings.Add(undertaking);
             Savechanges();
         }
