@@ -27,6 +27,6 @@ public partial class LoginPage : ContentPage
     }
     private void OnCreateaccountClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new CreateAccountPage());
+        Navigation.PushAsync(new TestPageNoah());
     }
 }
