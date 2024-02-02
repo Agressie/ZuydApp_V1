@@ -32,4 +32,9 @@ public partial class HomePage : ContentPage
     {
         Navigation.PushAsync(new RoomPage());
     }
+
+    private void LogoutClicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }

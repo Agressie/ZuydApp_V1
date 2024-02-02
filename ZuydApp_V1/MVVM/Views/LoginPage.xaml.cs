@@ -19,7 +19,10 @@ public partial class LoginPage : ContentPage
         else
         {
             if (VM_User.LoginCheckandUsernameCheck(false, EntryUsername.Text, EntryPassword.Text) == true)
+            {
                 Navigation.PushAsync(new HomePage());
+                Invalid.IsVisible = false;
+            }
             else
                 Invalid.IsVisible = true;
             
