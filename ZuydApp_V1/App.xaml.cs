@@ -18,7 +18,7 @@ namespace ZuydApp_V1
             EventRepo = eventRepo;
             UserRepo = userRepo;
             RoomRepo = roomRepo;
-            MainPage = new NavigationPage(new HomePage());
+            MainPage = new NavigationPage(new LoginPage());
         }
     }
 }
