@@ -67,13 +67,13 @@ namespace ZuydApp_V1.MVVM.ViewModels
         }
 
         // When you want to get a list with all actviteiten call this function.
-        public List<Undertaking> GetUndertaking()
+        public static List<Undertaking> GetUndertaking()
         {
             Refresh();
             return Undertakings;
         }
         // When you want one specific actviteit call this function and make sure you give the right Event ID.
-        public Undertaking GetSpecificUndertaking(int id)
+        public static Undertaking GetSpecificUndertaking(int id)
         {
             return App.UndertakingRepo.GetSpecificEntity(id);
         }
