@@ -12,6 +12,10 @@
             FontAttributes="Bold"
             FontSize="Large"
             Margin="0,0,0,20"/>
+        <Label 
+            Text="Evenement"
+            FontSize="Medium"
+            HorizontalTextAlignment="Center"/>
         <VerticalStackLayout Margin="10,0,10,0">
             <Frame
                 CornerRadius="10"

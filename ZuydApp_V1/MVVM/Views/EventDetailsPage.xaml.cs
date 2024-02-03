@@ -52,6 +52,7 @@ public partial class EventDetailsPage : ContentPage
 			VM_Event.AddUser(VM_User.CurrentUser);
 			btnInUitschrijven.Text = "Uitschrijven";
 			enteredevent = true;
+			Navigation.PopAsync();
 		}
 	}
 

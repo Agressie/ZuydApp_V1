@@ -22,6 +22,8 @@ public partial class LoginPage : ContentPage
             {
                 Navigation.PushAsync(new HomePage());
                 Invalid.IsVisible = false;
+                EntryUsername.Text = "";
+                EntryPassword.Text = "";
             }
             else
                 Invalid.IsVisible = true;

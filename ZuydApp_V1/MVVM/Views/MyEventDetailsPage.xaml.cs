@@ -39,19 +39,9 @@ public partial class MyEventDetailsPage : ContentPage
 
     public void OnInUitschrijvenClicked(object sender, EventArgs e)
     {
-        if (enteredevent == true)
-        {
-
             VM_Event.RemoveUser(VM_User.CurrentUser);
             btnInUitschrijven.Text = "Inschrijven";
             enteredevent = false;
             Navigation.PopAsync();
-        }
-        else if (enteredevent == false)
-        {
-            VM_Event.AddUser(VM_User.CurrentUser);
-            btnInUitschrijven.Text = "Uitschrijven";
-            enteredevent = true;
-        }
     }
 }

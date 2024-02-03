@@ -19,7 +19,7 @@ public partial class CreateEventPage : ContentPage
 		if (titleempty == false || locationempty != false || descriptionempty != false)
 			if (EditorDescription.Text.Count() < 250)
 				VM_Event.CreateNewEvent(Entrytitle.Text, EntryLocation.Text, dateTime, EditorDescription.Text);
-				Navigation.PushAsync(new EventPage());
+				Navigation.PopAsync();
 
     }
 }
