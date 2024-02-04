@@ -24,6 +24,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
             undertaking.DateTime = datetime;
             undertaking.Users = new List<User>();
             App.UndertakingRepo.SaveEntity(undertaking);
+            SetCurrentUndertaking(undertaking);
             Console.WriteLine(App.UndertakingRepo.statusMessage);
         }
 

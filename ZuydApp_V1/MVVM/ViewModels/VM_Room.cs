@@ -52,6 +52,11 @@ namespace ZuydApp_V1.MVVM.ViewModels
             CurrentRoom = room;
         }
 
+        public static bool CheckRoomsEmpty()
+        {
+            return App.RoomRepo.Checkifempty();
+        }
+
         // These functions are for the functions above to save and get lokalen.
         private static void Refresh()
         {

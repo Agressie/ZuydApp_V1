@@ -29,26 +29,26 @@
                 WidthRequest="180"
                 HorizontalTextAlignment="Center"/>
             <Label
-                 Text=" "/>
+                x:Name="Roominvalid"
+                TextColor="Red"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                 Text="Onjuist Lokaal"/>
             <Label 
-                Text="Locatie"
+                Text="Lokaal"
                 HorizontalTextAlignment="Center"/>
 
             <Entry 
-                x:Name="EntryLocation"
-                Placeholder="Locatie van evenement"
+                x:Name="EntryRoom"
+                Placeholder="Lokaal van activiteit B3.305,B3.317.B3.325"
                 WidthRequest="180"
                 HorizontalTextAlignment="Center"/>
 
             <Label
                 Text=" "/>
             <Label 
-                Text="Datum en Tijd"
+                Text="Tijd"
                 HorizontalTextAlignment="Center"/>
-            <DatePicker
-                x:Name="DPFDate"
-                HorizontalOptions="Center"
-                />
             <Label
                 Text=" "/>
             <TimePicker
@@ -62,18 +62,18 @@
 
             <Editor 
                 x:Name="EditorDescription"
-                Placeholder="Beschrijving van evenement"
+                Placeholder="Beschrijving van activiteit"
                 WidthRequest="230"
                 HeightRequest="150"
                 HorizontalTextAlignment="Center"/>
             <Label
                 Text=" "/>
             <Button 
-                x:Name="btnCreateEvent"
+                x:Name="btnCreateUndertaking"
                 Text="Evenement Aanmaken"
                 WidthRequest="200"
                 BackgroundColor="Red"
-                Clicked="OnCreateEventClicked" />
+                Clicked="OnCreateUndertakingClicked" />
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

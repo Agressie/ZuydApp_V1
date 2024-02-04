@@ -1,12 +1,15 @@
 using ZuydApp_V1.MVVM.ViewModels;
+using ZuydApp_V1.API;
 namespace ZuydApp_V1.MVVM.Views;
 
 public partial class LoginPage : ContentPage
 {
 	public LoginPage()
 	{
-		InitializeComponent();
-	}
+        // I can't put this in the Mauiprogram, because it usesses the VM;s
+        Dijkstra.FirstcreateRooms();
+        InitializeComponent();
+    }
     private void Onloginclicked(object sender, EventArgs e)
     {
         var UsernameEmpty = string.IsNullOrEmpty(EntryUsername.Text);

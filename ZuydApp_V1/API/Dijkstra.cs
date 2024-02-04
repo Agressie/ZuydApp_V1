@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Python.Runtime;
+using ZuydApp_V1.MVVM.ViewModels;
+using ZuydApp_V1.MVVM.Views;
 
 namespace ZuydApp_V1.API
 {
@@ -15,9 +17,24 @@ namespace ZuydApp_V1.API
         {
             return pythonModule.Dijkstra(start, end);
         }
-        public List<String> PyGrafenlijst()
+        public static List<String> PyGrafenlijst()
         {
-            return pythonModule.Grafenlijst();
+            // This is not working but it's not an priority asof right now.
+            //return pythonModule.geefGrafenlijst();
+            List<string> Templist = ["B3.305", "B3.317","B3.325"];
+            return Templist;
+        }
+
+        public static void FirstcreateRooms()
+        {
+            if (VM_Room.CheckRoomsEmpty() == true)
+            {
+                List<string> rooms = PyGrafenlijst();
+                foreach (string room in rooms)
+                {
+                    VM_Room.CreateNewRoom(room);
+                }
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace ZuydApp_V1
             builder.Services.AddSingleton<BaseRepo<Room>>();
 #if DEBUG
             builder.Logging.AddDebug();
-#endif
+#endif      
             return builder.Build();
         } 
     }

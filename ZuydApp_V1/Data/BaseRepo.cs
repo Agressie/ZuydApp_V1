@@ -104,7 +104,7 @@ namespace ZuydApp_V1.Data
             try
             {
                 var table = connection.Table<T>().ToList();
-                if (table == null)
+                if (table.Count == 0)
                 {
                     statusMessage = $"Table is empty";
                     result = true;
@@ -121,7 +121,14 @@ namespace ZuydApp_V1.Data
         {
             try
             {
-                connection.InsertWithChildren(entity, recursive);
+                if(entity.Id != 0)
+                {
+                    connection.UpdateWithChildren(entity);
+                }
+                else
+                {
+                    connection.InsertWithChildren(entity, recursive);
+                }
             }
             catch (Exception ex)
             {
