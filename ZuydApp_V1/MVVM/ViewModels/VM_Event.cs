@@ -80,11 +80,11 @@ namespace ZuydApp_V1.MVVM.ViewModels
         // These functions are for the functions above to save and get events.
         private static void Refresh()
         {
-            Events = App.EventRepo.GetEntities();
+            Events = App.EventRepo.GetEntitiesWithChildren();
         }
         private static void Savechanges()
         {
-            App.EventRepo.SaveEntity(CurrentEvent);
+            App.EventRepo.SaveEntityWithChildren(CurrentEvent);
             Console.WriteLine(App.EventRepo.statusMessage);
         }
 

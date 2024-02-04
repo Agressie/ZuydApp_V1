@@ -87,11 +87,11 @@ namespace ZuydApp_V1.MVVM.ViewModels
         // These functions are for the functions above to save and get events.
         private static void Refresh()
         {
-            Undertakings = App.UndertakingRepo.GetEntities();
+            Undertakings = App.UndertakingRepo.GetEntitiesWithChildren();
         }
         private static void Savechanges()
         {
-            App.UndertakingRepo.SaveEntity(CurrentUndertaking);
+            App.UndertakingRepo.SaveEntityWithChildren(CurrentUndertaking);
             Console.WriteLine(App.UndertakingRepo.statusMessage);
         }
 
