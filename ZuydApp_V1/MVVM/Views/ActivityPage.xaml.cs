@@ -1,3 +1,5 @@
+using ZuydApp_V1.MVVM.ViewModels;
+
 namespace ZuydApp_V1.MVVM.Views;
 
 public partial class ActivityPage : ContentPage
@@ -9,6 +11,6 @@ public partial class ActivityPage : ContentPage
 
     private void btnVoegActiviteit_Clicked(object sender, EventArgs e)
     {
-
+		Navigation.PushAsync(new CreateUndertakingPage());
     }
 }
