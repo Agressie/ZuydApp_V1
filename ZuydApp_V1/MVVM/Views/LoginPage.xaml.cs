@@ -7,7 +7,7 @@ public partial class LoginPage : ContentPage
 	public LoginPage()
 	{
         // I can't put this in the Mauiprogram, because it usesses the VM;s
-        Dijkstra.FirstcreateRooms();
+        //Dijkstra.FirstcreateRooms();
         InitializeComponent();
     }
     private void Onloginclicked(object sender, EventArgs e)
