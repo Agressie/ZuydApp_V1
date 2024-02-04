@@ -55,11 +55,11 @@ namespace ZuydApp_V1.MVVM.ViewModels
         // These functions are for the functions above to save and get lokalen.
         private static void Refresh()
         {
-            Rooms = App.RoomRepo.GetEntities();
+            Rooms = App.RoomRepo.GetEntitiesWithChildren();
         }
         private static void Savechanges()
         {
-            App.RoomRepo.SaveEntity(CurrentRoom);
+            App.RoomRepo.SaveEntityWithChildren(CurrentRoom);
             Console.WriteLine(App.RoomRepo.statusMessage);
         }
 
@@ -72,6 +72,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.SetLokaal((int)CurrentRoom.Id, true);
             }
+
+            if (CurrentRoom.Undertakings == null)
+                CurrentRoom.Undertakings = new List<Undertaking>();
+
             CurrentRoom.Undertakings.Add(undertaking);
             Savechanges();
         }

@@ -31,7 +31,10 @@ public partial class CreateAccountPage : ContentPage
                     if (VM_User.LoginCheckandUsernameCheck(false, EntryUsername.Text, EntryPassword.Text) == true)
                     {
                         Accountnotification(EntryUsername.Text);
-                        Navigation.PushAsync(new HomePage());
+                        Navigation.PopAsync();
+                        EntryUsername.Text = "";
+                        EntryPassword.Text = "";
+                        EntryConfirmPassword.Text = "";
                     }
                 }
                 else
@@ -44,6 +47,7 @@ public partial class CreateAccountPage : ContentPage
 
     public void Accountnotification(string username)
     {
+        
         var rq = new NotificationRequest
         {
             NotificationId = 1000,

@@ -19,7 +19,12 @@ public partial class LoginPage : ContentPage
         else
         {
             if (VM_User.LoginCheckandUsernameCheck(false, EntryUsername.Text, EntryPassword.Text) == true)
+            {
                 Navigation.PushAsync(new HomePage());
+                Invalid.IsVisible = false;
+                EntryUsername.Text = "";
+                EntryPassword.Text = "";
+            }
             else
                 Invalid.IsVisible = true;
             
@@ -27,6 +32,6 @@ public partial class LoginPage : ContentPage
     }
     private void OnCreateaccountClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new TestPageNoah());
+        Navigation.PushAsync(new CreateAccountPage());
     }
 }

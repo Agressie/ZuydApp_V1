@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ZuydApp_V1.MVVM.Views.EventPage"
+             x:Class="ZuydApp_V1.MVVM.Views.MyActivityPage"
              NavigationPage.HasNavigationBar="False">
-    <StackLayout>
+    <VerticalStackLayout Margin="10,0,10,0">
         <Label 
             Text="ZUYD Wayfinder"
             VerticalOptions="Center" 
@@ -13,26 +13,26 @@
             FontSize="Large"
             Margin="0,0,0,20"/>
         <Label 
-            Text="Alle beschikbare Evenementen"
+            Text="Alle activiteiten"
             FontSize="Medium"
             HorizontalTextAlignment="Center"/>
         <ListView ItemsSource="{Binding events}"
-                  x:Name="lstvwEvents"
-                  Margin="0,5,0,0"
-                  RowHeight="105"
-                  WidthRequest="340"
-                  SelectionMode="None"
-                  SeparatorVisibility="None"
-                  IsPullToRefreshEnabled="True">
+          x:Name="lstvwUndertaking"
+          Margin="0,5,0,0"
+          RowHeight="105"
+          WidthRequest="340"
+          SelectionMode="None"
+          SeparatorVisibility="None"
+          IsPullToRefreshEnabled="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell Tapped="TappedViewCell">
                         <Border BackgroundColor="#ff9191"
-                                Margin="0,5,0,5"
-                                Stroke="Black"
-                                StrokeThickness="3"
-                                StrokeShape="RoundRectangle 10"
-                                HeightRequest="95">
+                        Margin="0,5,0,5"
+                        Stroke="Black"
+                        StrokeThickness="3"
+                        StrokeShape="RoundRectangle 10"
+                        HeightRequest="95">
                             <Grid Margin="5,5,5,5">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0"/>
@@ -65,15 +65,5 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button
-            x:Name="btnVoegEvenement"
-            Text="+ Voeg evenement toe" 
-            Clicked="btnVoegEvenement_Clicked"
-            HorizontalOptions="Center"
-            TextColor="White"
-            BackgroundColor="#E3001B"
-            WidthRequest="200"
-            Margin="0,0,0,10"/>
-
-    </StackLayout>
+    </VerticalStackLayout>
 </ContentPage>

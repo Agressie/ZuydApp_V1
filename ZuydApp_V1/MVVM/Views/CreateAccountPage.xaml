@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZuydApp_V1.MVVM.Views.CreateAccountPage"
-             Title=" ">
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
         <Label 
             Text="AccounCreate Page"
@@ -11,7 +11,7 @@
             SemanticProperties.HeadingLevel="Level1"/>
 
         <Label 
-            Text=""
+            Text="Passwords don't match or Username already exists."
             x:Name="Invalid"
             TextColor="Red"
             HorizontalTextAlignment="Center"/>

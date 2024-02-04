@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
-{
-    public class UserUndertaking : Tabledata
+{ 
+    public class UserUndertaking
     {
         [ForeignKey(typeof(Undertaking))]
         public int UndertakingId { get; set; }

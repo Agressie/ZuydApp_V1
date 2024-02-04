@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZuydApp_V1.MVVM.Views.HomePage"
-             Title="HomePage">
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
 
         
@@ -24,7 +24,7 @@
             FontSize="Large"
             Margin="0,0,0,20"/>
 
-        
+
         <Button
             x:Name="btnEvenementen"
             Text="Evenementen"
@@ -36,34 +36,34 @@
             Margin="0,0,0,10"/>
 
         <Button
-            x:Name="btnActiviteiten"
-            Text="Activiteiten"
-            Clicked="btnActiviteiten_Clicked"
+            x:Name="btnMyEvenementen"
+            Text="Mijn evenementen"
+            Clicked="btnMyEvenementen_Clicked"
             HorizontalOptions="Center"
             TextColor="White"
             BackgroundColor="#E3001B"
-            Margin="0,0,0,10"
-            WidthRequest="200"/>
+            WidthRequest="200"
+            Margin="0,0,0,10"/>
 
         <Button
-            x:Name="btnLokalen"
-            Text="Lokalen"
-            Clicked="btnLokalen_Clicked"
+            x:Name="btnSeeaccount"
+            Text="Bekijk Account"
+            Clicked="SeeAccountClicked"
             HorizontalOptions="Center"
             TextColor="White"
             BackgroundColor="#E3001B"
-            Margin="0,0,0,10"
-            WidthRequest="200"/>
+            WidthRequest="200"
+            Margin="0,0,0,10"/>
 
         <Button
-            x:Name="btnParkeerterrein"
-            Text="Parkeerterrein"
-            Clicked="btnParkeerterrein_Clicked"
+            x:Name="btnLogout"
+            Text="Uitloggen"
+            Clicked="LogoutClicked"
             HorizontalOptions="Center"
             TextColor="White"
-            BackgroundColor="#E3001B"
+            BackgroundColor="Grey"
             Margin="0,0,0,10"
-            WidthRequest="200"/>
+            WidthRequest="150"/>
 
     </VerticalStackLayout>
 </ContentPage>

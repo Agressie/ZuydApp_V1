@@ -2,18 +2,9 @@ namespace ZuydApp_V1.MVVM.Views;
 
 public partial class HomePage : ContentPage
 {
-	public HomePage()
-	{
-		InitializeComponent();
-	}
-
-    
-
-    
-
-    private void btnActiviteiten_Clicked(object sender, EventArgs e)
+    public HomePage()
     {
-        Navigation.PushAsync(new ActivityPage());
+        InitializeComponent();
     }
 
     private void btnEvenementen_Clicked(object sender, EventArgs e)
@@ -21,15 +12,17 @@ public partial class HomePage : ContentPage
         Navigation.PushAsync(new EventPage());
     }
 
-    
-
-    private void btnParkeerterrein_Clicked(object sender, EventArgs e)
+    private void btnMyEvenementen_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new ParkingPage());
+        Navigation.PushAsync(new MyEventPage());
+    }
+    private void SeeAccountClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new AccountDetailsPage());
     }
 
-    private void btnLokalen_Clicked(object sender, EventArgs e)
+    private void LogoutClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new RoomPage());
+        Navigation.PopAsync();
     }
 }

@@ -2,12 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZuydApp_V1.MVVM.Views.LoginPage"
-             Title=" ">
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
         <StackLayout
             Padding="30,0"
             Spacing="25">
-
             <Label
                 Text="Zuyd Wayfinder"
                 Style="{StaticResource Headline}"
@@ -52,6 +51,9 @@
                 Clicked="OnCreateaccountClicked"
                 BackgroundColor="White"
                 TextColor="Black"
+                HorizontalOptions="Center"/>
+            <Label
+                Text="Forgot Password"
                 HorizontalOptions="Center"/>
 
         </StackLayout>

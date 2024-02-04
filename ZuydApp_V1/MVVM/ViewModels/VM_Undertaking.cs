@@ -67,13 +67,13 @@ namespace ZuydApp_V1.MVVM.ViewModels
         }
 
         // When you want to get a list with all actviteiten call this function.
-        public List<Undertaking> GetUndertaking()
+        public static List<Undertaking> GetUndertaking()
         {
             Refresh();
             return Undertakings;
         }
         // When you want one specific actviteit call this function and make sure you give the right Event ID.
-        public Undertaking GetSpecificUndertaking(int id)
+        public static Undertaking GetSpecificUndertaking(int id)
         {
             return App.UndertakingRepo.GetSpecificEntity(id);
         }
@@ -87,11 +87,11 @@ namespace ZuydApp_V1.MVVM.ViewModels
         // These functions are for the functions above to save and get events.
         private static void Refresh()
         {
-            Undertakings = App.UndertakingRepo.GetEntities();
+            Undertakings = App.UndertakingRepo.GetEntitiesWithChildren();
         }
         private static void Savechanges()
         {
-            App.UndertakingRepo.SaveEntity(CurrentUndertaking);
+            App.UndertakingRepo.SaveEntityWithChildren(CurrentUndertaking);
             Console.WriteLine(App.UndertakingRepo.statusMessage);
         }
 
@@ -105,6 +105,10 @@ namespace ZuydApp_V1.MVVM.ViewModels
                 VM_User.SetCurrentUser(user);
                 VM_User.AddUndertaking(CurrentUndertaking, true);
             }
+
+            if (CurrentUndertaking.Users == null)
+                CurrentUndertaking.Users = new List<User>();
+
             CurrentUndertaking.Users.Add(user);
             Savechanges();
         }

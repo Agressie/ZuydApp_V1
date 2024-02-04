@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ZuydApp_V1.MVVM.Views.EventPage"
+             x:Class="ZuydApp_V1.MVVM.Views.MyEventPage"
              NavigationPage.HasNavigationBar="False">
     <StackLayout>
         <Label 
@@ -13,7 +13,7 @@
             FontSize="Large"
             Margin="0,0,0,20"/>
         <Label 
-            Text="Alle beschikbare Evenementen"
+            Text="Ingeschreven Evenement"
             FontSize="Medium"
             HorizontalTextAlignment="Center"/>
         <ListView ItemsSource="{Binding events}"
@@ -64,16 +64,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Button
-            x:Name="btnVoegEvenement"
-            Text="+ Voeg evenement toe" 
-            Clicked="btnVoegEvenement_Clicked"
-            HorizontalOptions="Center"
-            TextColor="White"
-            BackgroundColor="#E3001B"
-            WidthRequest="200"
-            Margin="0,0,0,10"/>
 
     </StackLayout>
 </ContentPage>

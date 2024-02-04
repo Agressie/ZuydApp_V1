@@ -13,5 +13,9 @@ namespace ZuydApp_V1.Data
         List<T>? GetEntities();
         void DeleteEntity(T entity);
         bool Checkifempty();
+
+        void SaveEntityWithChildren(T entity, bool recursive = false);
+        void DeleteEntityWithChildren(T entity);
+        List<T>? GetEntitiesWithChildren();
     }
 }
