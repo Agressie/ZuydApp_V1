@@ -4,46 +4,69 @@
              x:Class="ZuydApp_V1.MVVM.Views.CreateAccountPage"
              NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
+        <Image Source="zuyd_logo.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+        WidthRequest="100" HeightRequest="100" Margin="0,0,0,10" />
+
+
+        <VerticalStackLayout Margin="10,0,10,0"/>
+
         <Label 
-            Text="AccounCreate Page"
+             Text="ZUYD Wayfinder"
+             VerticalOptions="Center" 
+             HorizontalOptions="Center"
+             TextColor="#E3001B" 
+             FontAttributes="Bold"
+             FontSize="Large"
+             Margin="0,0,0,20"/>
+        <Label 
+            Text="Create your account!"
             HorizontalOptions="Center"
             Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"/>
+            SemanticProperties.HeadingLevel="Level1"
+            Margin="0,0,0,10"
+            FontSize="Small"/>
 
         <Label 
             Text="Passwords don't match or Username already exists."
             x:Name="Invalid"
             TextColor="Red"
-            HorizontalTextAlignment="Center"/>
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,10"/>
         <Label 
             Text="Username"
-            HorizontalTextAlignment="Center"/>
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,5"/>
 
         <Entry 
             x:Name="EntryUsername"
             Placeholder="Enter Username"
             WidthRequest="180"
-            HorizontalTextAlignment="Center"/>
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,10"/>
 
         <Label 
             Text="Password"
-            HorizontalTextAlignment="Center"/>
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,5"/>
 
         <Entry 
             x:Name="EntryPassword"
             Placeholder="Enter Password"
             WidthRequest="180"
-            HorizontalTextAlignment="Center"/>
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,10"/>
 
         <Label 
             Text="Confirm Password"
-            HorizontalTextAlignment="Center"/>
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,5"/>
 
         <Entry 
             x:Name="EntryConfirmPassword"
             Placeholder="Enter Password"
             WidthRequest="180"
-            HorizontalTextAlignment="Center"/>
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,10"/>
         <Label 
             Text=" "
             Style="{StaticResource Headline}"
