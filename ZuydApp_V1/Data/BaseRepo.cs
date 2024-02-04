@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,6 +116,40 @@ namespace ZuydApp_V1.Data
                 result = false;
             }
             return result;
+        }
+        public void SaveEntityWithChildren(T entity, bool recursive = false) 
+        {
+            try
+            {
+                connection.InsertWithChildren(entity, recursive);
+            }
+            catch (Exception ex)
+            {
+                statusMessage = $"Error: {ex.Message}";
+            }
+        }
+        public void DeleteEntityWithChildren(T entity)
+        {
+            try
+            {
+                connection.Delete(entity, true);
+            }
+            catch(Exception ex)
+            {
+                statusMessage = $"Error: {ex.Message}";
+            }
+        }
+        public List<T> GetEntitiesWithChildren()
+        {
+            try
+            {
+                return connection.GetAllWithChildren<T>().ToList();
+            }
+            catch (Exception ex)
+            {
+                statusMessage = $"Error: {ex.Message}";
+            }
+            return null;
         }
     }
 }

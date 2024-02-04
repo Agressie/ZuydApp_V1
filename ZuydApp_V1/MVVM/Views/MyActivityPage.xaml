@@ -12,16 +12,6 @@
             FontAttributes="Bold"
             FontSize="Large"
             Margin="0,0,0,20"/>
-
-        <Button
-            x:Name="btnVoegActiviteit"
-            Text="+ Voeg Activiteit toe" 
-            Clicked="VoegActiviteitClicked" 
-            HorizontalOptions="Center"
-            TextColor="White"
-            BackgroundColor="#E3001B"
-            WidthRequest="200"
-            Margin="0,0,0,10"/>
         <Label 
             Text="Alle activiteiten"
             FontSize="Medium"
@@ -74,8 +64,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-
 
     </VerticalStackLayout>
 </ContentPage>
