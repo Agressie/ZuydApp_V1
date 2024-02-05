@@ -5,7 +5,7 @@
              NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
         <Label 
-            Text="AccounCreate Page"
+            Text="Account aanmaken"
             HorizontalOptions="Center"
             Style="{StaticResource Headline}"
             SemanticProperties.HeadingLevel="Level1"/>
@@ -14,6 +14,7 @@
             Text="Passwords don't match or Username already exists."
             x:Name="Invalid"
             TextColor="Red"
+            IsVisible="False"
             HorizontalTextAlignment="Center"/>
         <Label 
             Text="Username"

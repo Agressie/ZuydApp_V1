@@ -16,7 +16,8 @@ public partial class MyEventPage : ContentPage
     {
         var viewcell = sender as ViewCell;
         var @event = viewcell.BindingContext as Event;
-        VM_Event.SetCurrentEvent(@event);
+        var @eventwithchildern = VM_Event.GetSpecificEvent(@event.Id);
+        VM_Event.SetCurrentEvent(@eventwithchildern);
         Navigation.PushAsync(new MyEventDetailsPage());
     }
 }

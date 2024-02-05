@@ -22,7 +22,7 @@ public partial class CreateUndertakingPage : ContentPage
         {
             if (room.Name == EntryRoom.Text)
             {
-                if (titleempty == false || locationempty != false || descriptionempty != false)
+                if (titleempty == false && locationempty == false && descriptionempty == false)
                     if (EditorDescription.Text.Count() < 250)
                     {
                         VM_Undertaking.CreateNewUndertaking(Entrytitle.Text, EditorDescription.Text, dateTime);

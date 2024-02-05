@@ -92,7 +92,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
 
         public static void AddUndertaking(Undertaking undertaking, bool loop = false)
         {
-            if (loop = false)
+            if (loop == false)
             {
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.SetEvent((int)CurrentEvent.Id, true);

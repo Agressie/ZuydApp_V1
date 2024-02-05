@@ -3,18 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZuydApp_V1.MVVM.Views.ActivityPage"
              NavigationPage.HasNavigationBar="False">
-    <VerticalStackLayout>
-
-
-        <Image Source="zuyd_logo.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
-               WidthRequest="100" HeightRequest="100" Margin="0,0,0,10" />
-
-
-        <VerticalStackLayout Margin="10,0,10,0"/>
-
-
-
-
+    <StackLayout>
         <Label 
             Text="ZUYD Wayfinder"
             VerticalOptions="Center" 
@@ -23,7 +12,61 @@
             FontAttributes="Bold"
             FontSize="Large"
             Margin="0,0,0,20"/>
-
+        <Label 
+            Text="Alle activiteiten"
+            FontSize="Medium"
+            HorizontalTextAlignment="Center"/>
+        <ListView ItemsSource="{Binding events}"
+          x:Name="lstvwUndertaking"
+          Margin="0,5,0,0"
+          RowHeight="105"
+          WidthRequest="340"
+          SelectionMode="None"
+          SeparatorVisibility="None"
+          IsPullToRefreshEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Tapped="TappedViewCell">
+                        <Border BackgroundColor="#ff9191"
+                        Margin="0,5,0,5"
+                        Stroke="Black"
+                        StrokeThickness="3"
+                        StrokeShape="RoundRectangle 10"
+                        HeightRequest="95">
+                            <Grid Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    x:Name="lblEventId"
+                                    Text="{Binding Id}"
+                                    IsVisible="false"/>
+                                <Label
+                                    x:Name="lblEventName"
+                                    Grid.Row="1"
+                                    Text="{Binding Name}"/>
+                                <Label
+                                    x:Name="lblDateTime"
+                                    Grid.Row="2"
+                                    Text="{Binding DateTime}"/>
+                                <Label
+                                     x:Name="lblroom"
+                                    Grid.Row="3"
+                                    Text="{Binding RoomId}"/>
+                            </Grid>
+                        </Border>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <Button
             x:Name="btnVoegActiviteit"
             Text="+ Voeg Activiteit toe" 
@@ -36,5 +79,5 @@
             
             
 
-    </VerticalStackLayout>
+    </StackLayout>
 </ContentPage>

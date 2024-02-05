@@ -62,14 +62,14 @@ namespace ZuydApp_V1.Data
         {
             try
             {
-                var table = connection.Table<T>().ToList();
+                var table = connection.GetAllWithChildren<T>().ToList();
                 if (table == null)
                 {
                     statusMessage = $"Error: Table is empty";
                     return null;
                 }
                 else
-                    return connection.Table<T>().FirstOrDefault(x => x.Id == id);
+                    return connection.GetAllWithChildren<T>().FirstOrDefault(x => x.Id == id);
             }
             catch (Exception ex)
             {

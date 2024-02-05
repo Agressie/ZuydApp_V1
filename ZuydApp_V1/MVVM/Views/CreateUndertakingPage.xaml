@@ -70,7 +70,7 @@
                 Text=" "/>
             <Button 
                 x:Name="btnCreateUndertaking"
-                Text="Evenement Aanmaken"
+                Text="Activiteit Aanmaken"
                 WidthRequest="200"
                 BackgroundColor="Red"
                 Clicked="OnCreateUndertakingClicked" />
