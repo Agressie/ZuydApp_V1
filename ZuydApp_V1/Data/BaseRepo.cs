@@ -1,10 +1,12 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZuydApp_V1.Data;
+using ZuydApp_V1.MVVM.Models;
 
 namespace ZuydApp_V1.Data
 {
@@ -60,14 +62,14 @@ namespace ZuydApp_V1.Data
         {
             try
             {
-                var table = connection.Table<T>().ToList();
+                var table = connection.GetAllWithChildren<T>().ToList();
                 if (table == null)
                 {
                     statusMessage = $"Error: Table is empty";
                     return null;
                 }
                 else
-                    return connection.Table<T>().FirstOrDefault(x => x.Id == id);
+                    return connection.GetAllWithChildren<T>().FirstOrDefault(x => x.Id == id);
             }
             catch (Exception ex)
             {
@@ -102,7 +104,7 @@ namespace ZuydApp_V1.Data
             try
             {
                 var table = connection.Table<T>().ToList();
-                if (table == null)
+                if (table.Count == 0)
                 {
                     statusMessage = $"Table is empty";
                     result = true;
@@ -114,6 +116,47 @@ namespace ZuydApp_V1.Data
                 result = false;
             }
             return result;
+        }
+        public void SaveEntityWithChildren(T entity, bool recursive = false) 
+        {
+            try
+            {
+                if(entity.Id != 0)
+                {
+                    connection.UpdateWithChildren(entity);
+                }
+                else
+                {
+                    connection.InsertWithChildren(entity, recursive);
+                }
+            }
+            catch (Exception ex)
+            {
+                statusMessage = $"Error: {ex.Message}";
+            }
+        }
+        public void DeleteEntityWithChildren(T entity)
+        {
+            try
+            {
+                connection.Delete(entity, true);
+            }
+            catch(Exception ex)
+            {
+                statusMessage = $"Error: {ex.Message}";
+            }
+        }
+        public List<T> GetEntitiesWithChildren()
+        {
+            try
+            {
+                return connection.GetAllWithChildren<T>().ToList();
+            }
+            catch (Exception ex)
+            {
+                statusMessage = $"Error: {ex.Message}";
+            }
+            return null;
         }
     }
 }

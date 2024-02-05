@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZuydApp_V1.MVVM.Views.CreateUndertakingPage"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout>
+        <Label 
+            Text="ZUYD Wayfinder"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            TextColor="#E3001B" 
+            FontAttributes="Bold"
+            FontSize="Large"
+            Margin="0,0,0,20"/>
+        <VerticalStackLayout Margin="10,0,10,0">
+            <Label 
+                Text="Nieuw Activiteit aanmaken"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"/>
+            <Label
+                Text=" "/>
+            <Label 
+                Text="Activiteit Titel"
+                HorizontalTextAlignment="Center"/>
+
+            <Entry 
+                x:Name="Entrytitle"
+                Placeholder="Activiteit naam"
+                WidthRequest="180"
+                HorizontalTextAlignment="Center"/>
+            <Label
+                x:Name="Roominvalid"
+                TextColor="Red"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                 Text="Onjuist Lokaal"/>
+            <Label 
+                Text="Lokaal"
+                HorizontalTextAlignment="Center"/>
+
+            <Entry 
+                x:Name="EntryRoom"
+                Placeholder="Lokaal van activiteit B3.305,B3.317.B3.325"
+                WidthRequest="180"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                Text=" "/>
+            <Label 
+                Text="Tijd"
+                HorizontalTextAlignment="Center"/>
+            <Label
+                Text=" "/>
+            <TimePicker
+                x:Name="TPFTime"
+                HorizontalOptions="Center"/>
+            <Label
+               Text=" "/>
+            <Label 
+                Text="Beschrijving"
+                HorizontalTextAlignment="Center"/>
+
+            <Editor 
+                x:Name="EditorDescription"
+                Placeholder="Beschrijving van activiteit"
+                WidthRequest="230"
+                HeightRequest="150"
+                HorizontalTextAlignment="Center"/>
+            <Label
+                Text=" "/>
+            <Button 
+                x:Name="btnCreateUndertaking"
+                Text="Activiteit Aanmaken"
+                WidthRequest="200"
+                BackgroundColor="Red"
+                Clicked="OnCreateUndertakingClicked" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

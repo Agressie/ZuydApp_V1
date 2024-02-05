@@ -1,24 +1,28 @@
-﻿using ZuydApp_V1.Data;
+﻿using SQLite;
+using ZuydApp_V1.Data;
 using ZuydApp_V1.MVVM.Models;
+using ZuydApp_V1.MVVM.Views;
 
 namespace ZuydApp_V1
 {
     public partial class App : Application
     {
-        public static BaseRepo<Activiteit>? ActiviteitRepo { get; private set; }
-        public static BaseRepo<Evenement>? EvenementRepo { get; private set; }
+        public static BaseRepo<Undertaking>? UndertakingRepo { get; private set; }
+        public static BaseRepo<Event>? EventRepo { get; private set; }
         public static BaseRepo<User>? UserRepo { get; private set; }
-        public static BaseRepo<Lokaal>? LokaalRepo {  get; private set; } 
-        public App(BaseRepo<Activiteit>? activiteitRepo, BaseRepo<Evenement>? evenementRepo, BaseRepo<User>? userRepo, LokaalRepo<Lokaal> lokaalRepo)
+        public static BaseRepo<Room>? RoomRepo {  get; private set; }
+        public App(BaseRepo<Undertaking> undertakingRepo, BaseRepo<Event> eventRepo, BaseRepo<User> userRepo, BaseRepo<Room> roomRepo)
         {
             InitializeComponent();
 
-            ActiviteitRepo = activiteitRepo;
-            EvenementRepo = evenementRepo;
+            UndertakingRepo = undertakingRepo;
+            EventRepo = eventRepo;
             UserRepo = userRepo;
-            LokaalRepo = lokaalRepo;
-            MainPage = new AppShell();
-            MainPage = new AppShell();
+            RoomRepo = roomRepo;
+            SQLiteConnection connection = new SQLiteConnection(Constants.DBPath, Constants.flags);
+            connection.CreateTable<UserEvent>();
+            connection.CreateTable<UserUndertaking>();
+            MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

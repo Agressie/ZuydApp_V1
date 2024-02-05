@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZuydApp_V1.MVVM.Views.MyUndertakingPage"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout Margin="10,0,10,0">
+        <Label 
+            Text="ZUYD Wayfinder"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            TextColor="#E3001B" 
+            FontAttributes="Bold"
+            FontSize="Large"
+            Margin="0,0,0,20"/>
+        <Label 
+            Text="Alle activiteiten"
+            FontSize="Medium"
+            HorizontalTextAlignment="Center"/>
+        <ListView ItemsSource="{Binding events}"
+          x:Name="lstvwUndertaking"
+          Margin="0,5,0,0"
+          RowHeight="105"
+          WidthRequest="340"
+          SelectionMode="None"
+          SeparatorVisibility="None"
+          IsPullToRefreshEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Tapped="TappedViewCell">
+                        <Border BackgroundColor="#ff9191"
+                        Margin="0,5,0,5"
+                        Stroke="Black"
+                        StrokeThickness="3"
+                        StrokeShape="RoundRectangle 10"
+                        HeightRequest="95">
+                            <Grid Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    x:Name="lblEventId"
+                                    Text="{Binding Id}"
+                                    IsVisible="false"/>
+                                <Label
+                                    x:Name="lblEventName"
+                                    Grid.Row="1"
+                                    Text="{Binding Name}"/>
+                                <Label
+                                    x:Name="lblDateTime"
+                                    Grid.Row="2"
+                                    Text="{Binding DateTime}"/>
+                            </Grid>
+                        </Border>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>

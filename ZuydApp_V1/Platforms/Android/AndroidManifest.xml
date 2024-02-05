@@ -3,5 +3,11 @@
 	<application android:allowBackup="true" android:supportsRtl="true"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.MANAGE_DEVICE_POLICY_STATUS_BAR" />
+	<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+	<uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+	<uses-permission android:name="android.permission.SEND_RESPOND_VIA_MESSAGE" />
+	<uses-permission android:name="android.permission.STATUS_BAR" />
+	<uses-permission android:name="android.permission.USE_FINGERPRINT" />
 	<uses-sdk />
 </manifest>

@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZuydApp_V1.Data;
 
 namespace ZuydApp_V1.MVVM.Models
-{
-    public class UserEvent
+{ 
+    public class UserUndertaking
     {
-        [ForeignKey(typeof(Event))]
-        public int EvenementId { get; set; }
+        [ForeignKey(typeof(Undertaking))]
+        public int UndertakingId { get; set; }
 
         [ForeignKey(typeof(User))]
-        public int UserId { get; set;  }
+        public int UserId { get; set; }
     }
 }
