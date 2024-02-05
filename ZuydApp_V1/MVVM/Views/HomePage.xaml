@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZuydApp_V1.MVVM.Views.HomePage"
              NavigationPage.HasNavigationBar="False">
+             
     <VerticalStackLayout>
 
         

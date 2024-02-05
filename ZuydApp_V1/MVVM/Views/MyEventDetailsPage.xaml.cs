@@ -2,6 +2,7 @@ using ZuydApp_V1.MVVM.ViewModels;
 using ZuydApp_V1.MVVM.Models;
 using ZuydApp_V1.API;
 
+
 namespace ZuydApp_V1.MVVM.Views;
 
 public partial class MyEventDetailsPage : ContentPage
@@ -15,6 +16,8 @@ public partial class MyEventDetailsPage : ContentPage
         DisplayLayoutEvent.BindingContext = @event;
         DisplayLayoutWeather.BindingContext = forecast[0];
         checkentered(@event);
+        
+
     }
 
     private void checkentered(Event @event)
@@ -39,9 +42,11 @@ public partial class MyEventDetailsPage : ContentPage
 
     public void OnInUitschrijvenClicked(object sender, EventArgs e)
     {
-            VM_Event.RemoveUser(VM_User.CurrentUser);
-            btnInUitschrijven.Text = "Inschrijven";
-            enteredevent = false;
-            Navigation.PopAsync();
+        VM_Event.RemoveUser(VM_User.CurrentUser);
+        btnInUitschrijven.Text = "Inschrijven";
+        enteredevent = false;
+        Navigation.PopAsync();
     }
+
+   
 }
