@@ -3,9 +3,9 @@ using ZuydApp_V1.MVVM.Models;
 
 namespace ZuydApp_V1.MVVM.Views;
 
-public partial class ActivityPage : ContentPage
+public partial class UndertakingPage : ContentPage
 {
-	public ActivityPage()
+	public UndertakingPage()
 	{
 		InitializeComponent();
 		lstvwUndertaking.ItemsSource = VM_Event.CurrentEvent.Undertakings;

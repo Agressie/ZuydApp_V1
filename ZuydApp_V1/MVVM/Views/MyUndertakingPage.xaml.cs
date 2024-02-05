@@ -3,10 +3,10 @@ using ZuydApp_V1.MVVM.ViewModels;
 
 namespace ZuydApp_V1.MVVM.Views;
 
-public partial class MyActivityPage : ContentPage
+public partial class MyUndertakingPage : ContentPage
 {
 	private Event @event = VM_Event.CurrentEvent;
-	public MyActivityPage()
+	public MyUndertakingPage()
 	{
 		InitializeComponent();
         lstvwUndertaking.ItemsSource = @event.Undertakings;
