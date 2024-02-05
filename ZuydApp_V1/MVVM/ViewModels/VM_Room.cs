@@ -52,6 +52,11 @@ namespace ZuydApp_V1.MVVM.ViewModels
             CurrentRoom = room;
         }
 
+        public static bool CheckRoomsEmpty()
+        {
+            return App.RoomRepo.Checkifempty();
+        }
+
         // These functions are for the functions above to save and get lokalen.
         private static void Refresh()
         {
@@ -67,7 +72,7 @@ namespace ZuydApp_V1.MVVM.ViewModels
         // When you want to add an activiteit to an event call this function.
         public static void AddUndertaking(Undertaking undertaking, bool loop = false)
         {
-            if (loop = false)
+            if (loop == false)
             {
                 VM_Undertaking.SetCurrentUndertaking(undertaking);
                 VM_Undertaking.SetLokaal((int)CurrentRoom.Id, true);

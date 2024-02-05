@@ -2,11 +2,57 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZuydApp_V1.MVVM.Views.UndertakingDetailsPage"
-             Title="UndertakingDetailsPage">
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="ZUYD Wayfinder"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            TextColor="#E3001B" 
+            FontAttributes="Bold"
+            FontSize="Large"
+            Margin="0,0,0,20"/>
+        <Label 
+            Text="Activiteit"
+            FontSize="Medium"
+            HorizontalTextAlignment="Center"/>
+        <VerticalStackLayout Margin="10,0,10,0">
+            <Frame
+                CornerRadius="10"
+                BackgroundColor="#ff9191"
+                BorderColor="Black"
+                Margin="2,5,2,5"
+                Padding="10">
+                <StackLayout
+                    x:Name="DisplayLayoutUndertaking">
+                    <Label
+                            x:Name="lblUndertakingName"
+                            Text="{Binding Name}"
+                            HorizontalTextAlignment="Start"
+                            FontSize="Medium"/>
+                    <Label
+                            x:Name="lbldesc"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Description}"/>
+                    <Label      
+                            x:Name="lbldate"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding DateTime}"/>
+                    <Label
+                            x:Name="lblroom"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding RoomId}"/>
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <Button
+            x:Name="btnInUitschrijven"
+            Text="Inschrijven" 
+            WidthRequest="150"
+            TextColor="White"
+            BackgroundColor="Red"
+            Clicked="OnInUitschrijvenClicked"
+            HorizontalOptions="Fill"
+            Margin="5"/>
     </VerticalStackLayout>
 </ContentPage>

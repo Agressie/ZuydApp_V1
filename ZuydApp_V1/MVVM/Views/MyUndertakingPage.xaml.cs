@@ -3,13 +3,13 @@ using ZuydApp_V1.MVVM.ViewModels;
 
 namespace ZuydApp_V1.MVVM.Views;
 
-public partial class MyActivityPage : ContentPage
+public partial class MyUndertakingPage : ContentPage
 {
-	private List<Undertaking> undertakings = VM_Undertaking.GetUndertaking();
-	public MyActivityPage()
+	private Event @event = VM_Event.CurrentEvent;
+	public MyUndertakingPage()
 	{
 		InitializeComponent();
-        lstvwUndertaking.ItemsSource = undertakings;
+        lstvwUndertaking.ItemsSource = @event.Undertakings;
 
     }
 
@@ -21,8 +21,4 @@ public partial class MyActivityPage : ContentPage
         Navigation.PushAsync(new UndertakingDetailsPage());
     }
 
-    public void VoegActiviteitClicked(object sender, EventArgs e)
-	{
-
-	}
 }

@@ -37,7 +37,7 @@ public partial class MyEventDetailsPage : ContentPage
 
     public void OnActiviteitenClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MyActivityPage());
+        Navigation.PushAsync(new MyUndertakingPage());
     }
 
     public void OnInUitschrijvenClicked(object sender, EventArgs e)
