@@ -54,9 +54,26 @@ def regulier():
                 graph[location] = active_connections
     return graph
 
+def nood(start):
+    options = data["Graph_Options"]
+    nooduitgangen = [node for node, opties in options.items() if opties[1] == 1]
+
+    kortste_pad = None
+    kortste_afstand = float('inf')
+    for uitgang in nooduitgangen:
+        pad, afstand = dijkstra(data["Graph_Routes"], start, uitgang)
+        if afstand < kortste_afstand:
+            kortste_pad = pad
+            kortste_afstand = afstand
+
+    return kortste_pad, kortste_afstand
+
+
 start_node = "B3.309"
 end_node = "B3.305"
 shortest_path, shortest_distance = dijkstra(regulier(), start_node, end_node)
 
 print("Shortest Path:", shortest_path)
 print("Shortest Distance:", shortest_distance, " meter")
+
+print(nood("B3.309"))
