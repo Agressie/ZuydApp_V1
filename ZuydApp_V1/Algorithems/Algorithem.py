@@ -42,17 +42,13 @@ def dijkstra(graph, start, end):
         return "No path found", float('inf')
     
 def regulier():
-    graph = {}
-    routes = data["Graph_Routes"]
-    options = data["Graph_Options"]
-    
-    for location, connections in routes.items():
-        if location in options:
-            option_list = options[location]
-            active_connections = [connection for i, connection in enumerate(connections) if i < len(option_list) and option_list[i] == 1]
-            if active_connections:  
-                graph[location] = active_connections
-    return graph
+    regulierpad = {}
+    for node, options in data['Graph_Options'].items():
+        if options[0] == 1:  
+            if node in data['Graph_Routes']:  
+                regulierpad[node] = data['Graph_Routes'][node]
+
+    return regulierpad
 
 def nood(start):
     options = data["Graph_Options"]
@@ -80,7 +76,7 @@ def invalide():
 
 start_node = "B3.309"
 end_node = "B3.305"
-shortest_path, shortest_distance = dijkstra(invalide(), start_node, end_node)
+shortest_path, shortest_distance = dijkstra(regulier(), start_node, end_node)
 
 print("Shortest Path:", shortest_path)
 print("Shortest Distance:", shortest_distance, " meter")
