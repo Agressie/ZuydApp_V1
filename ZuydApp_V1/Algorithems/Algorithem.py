@@ -68,10 +68,19 @@ def nood(start):
 
     return kortste_pad, kortste_afstand
 
+def invalide():
+    invalide_graph = {}
+    for node, options in data['Graph_Options'].items():
+        if options[2] == 1:  
+            if node in data['Graph_Routes']:  
+                invalide_graph[node] = data['Graph_Routes'][node]
+
+    return invalide_graph
+
 
 start_node = "B3.309"
 end_node = "B3.305"
-shortest_path, shortest_distance = dijkstra(regulier(), start_node, end_node)
+shortest_path, shortest_distance = dijkstra(invalide(), start_node, end_node)
 
 print("Shortest Path:", shortest_path)
 print("Shortest Distance:", shortest_distance, " meter")
