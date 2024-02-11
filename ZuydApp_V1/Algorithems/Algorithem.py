@@ -3,8 +3,8 @@ import json
 with open("Database.json", "r") as file:
     data = json.load(file)
 
-def dijkstra(start, end):
-    graph = data["Graph_Routes"]
+def dijkstra(graph, start, end):
+
     distance = {node: float('inf') for node in graph}
     distance[start] = 0
 
@@ -23,7 +23,7 @@ def dijkstra(start, end):
 
         for neighbor, weight in graph[min_distance_node]:
             if neighbor not in distance:
-                continue  
+                continue
             if distance[min_distance_node] + weight < distance[neighbor]:
                 distance[neighbor] = distance[min_distance_node] + weight
                 previous[neighbor] = min_distance_node
@@ -42,21 +42,44 @@ def dijkstra(start, end):
     else:
         return "No path found", float('inf')
     
-def geefGrafenlijst():
-    graph = data["Graph_Routes"]
-    knooppunten = list(graph.keys())
-    return knooppunten
+def regulier():
+    regulierpad = {}
+    for node, options in data['Graph_Options'].items():
+        if options[0] == 1:  
+            if node in data['Graph_Routes']:  
+                regulierpad[node] = data['Graph_Routes'][node]
 
-def graafOptions():
-    regulierPad = {}
-    noodPad = {}
-    invalidePad = {}
+    return regulierpad
+
+def nood(start):
+    options = data["Graph_Options"]
+    nooduitgangen = [node for node, opties in options.items() if opties[1] == 1]
+
+    kortste_pad = None
+    kortste_afstand = float('inf')
+    for uitgang in nooduitgangen:
+        pad, afstand = dijkstra(data["Graph_Routes"], start, uitgang)
+        if afstand < kortste_afstand:
+            kortste_pad = pad
+            kortste_afstand = afstand
+
+    return kortste_pad, kortste_afstand
+
+def invalide():
+    invalide_graph = {}
+    for node, options in data['Graph_Options'].items():
+        if options[2] == 1:  
+            if node in data['Graph_Routes']:  
+                invalide_graph[node] = data['Graph_Routes'][node]
+
+    return invalide_graph
 
 
 start_node = "B3.309"
-end_node = "C3.203A"
-shortest_path, shortest_distance = dijkstra(start_node, end_node)
+end_node = "B3.305"
+shortest_path, shortest_distance = dijkstra(regulier(), start_node, end_node)
 
 print("Shortest Path:", shortest_path)
 print("Shortest Distance:", shortest_distance, " meter")
-print(geefGrafenlijst())
+
+print(nood("B3.309"))
