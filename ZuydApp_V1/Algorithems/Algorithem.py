@@ -1,9 +1,10 @@
-﻿import json
+import json
 
 with open("Database.json", "r") as file:
     data = json.load(file)
 
 def dijkstra(graph, start, end):
+
     distance = {node: float('inf') for node in graph}
     distance[start] = 0
 
