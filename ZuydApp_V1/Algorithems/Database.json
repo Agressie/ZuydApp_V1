@@ -1741,7 +1741,21 @@
     ],
     "Aula": [
       [ "Gang B0.3", 30 ],
-      [ "Trap C0.1", 30 ]
+      [ "Trap C0.1", 30 ],
+      [ "Hoofdingang", 15 ],
+      [ "Kantine", 44 ],
+      ["Restaurant", 28]
+    ],
+    "Hoofdingang": [
+      [ "Aula", 15 ]
+    ],
+    "Kantine": [
+      [ "Aula", 44 ],
+      ["Restaurant", 25]
+    ],
+    "Restaurant": [
+      [ "Kantine", 25 ],
+      ["Aula", 28]
     ]
 
 
@@ -2156,8 +2170,10 @@
     "D0.310": [ 1, 0, 1 ],
     "D0.312": [ 1, 0, 1 ],
     "D0.314": [ 1, 0, 1 ],
-    "Aula": [ 1, 0, 1 ]
-  }
-      
+    "Aula": [ 1, 0, 1 ],
+    "Hoofdingang": [ 1, 1, 1 ],
+    "Kantine": [ 1, 1, 1 ],
+    "Restaurant":  [1, 0, 1]
   }
 }
+
