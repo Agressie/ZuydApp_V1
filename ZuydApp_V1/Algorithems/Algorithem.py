@@ -4,7 +4,6 @@ with open("Database.json", "r") as file:
     data = json.load(file)
 
 def dijkstra(graph, start, end):
-    # Initialize distances for all nodes in the graph
     distance = {node: float('inf') for node in graph}
     distance[start] = 0
 
@@ -23,7 +22,7 @@ def dijkstra(graph, start, end):
 
         for neighbor, weight in graph[min_distance_node]:
             if neighbor not in distance:
-                continue  # Skip unknown nodes
+                continue
             if distance[min_distance_node] + weight < distance[neighbor]:
                 distance[neighbor] = distance[min_distance_node] + weight
                 previous[neighbor] = min_distance_node
@@ -32,7 +31,7 @@ def dijkstra(graph, start, end):
     
     path = []
     current = end
-    if current in previous or current == start:  # Check if a path exists
+    if current in previous or current == start:  
         while current != start:
             path.insert(0, current)
             current = previous[current]
@@ -41,11 +40,23 @@ def dijkstra(graph, start, end):
         return path, distance[end]
     else:
         return "No path found", float('inf')
-
+    
+def regulier():
+    graph = {}
+    routes = data["Graph_Routes"]
+    options = data["Graph_Options"]
+    
+    for location, connections in routes.items():
+        if location in options:
+            option_list = options[location]
+            active_connections = [connection for i, connection in enumerate(connections) if i < len(option_list) and option_list[i] == 1]
+            if active_connections:  
+                graph[location] = active_connections
+    return graph
 
 start_node = "B3.309"
-end_node = "C3.203A"
-shortest_path, shortest_distance = dijkstra(data["Graph_Routes"], start_node, end_node)
+end_node = "B3.305"
+shortest_path, shortest_distance = dijkstra(regulier(), start_node, end_node)
 
 print("Shortest Path:", shortest_path)
 print("Shortest Distance:", shortest_distance, " meter")
